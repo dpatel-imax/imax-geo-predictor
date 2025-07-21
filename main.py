@@ -1,8 +1,8 @@
 import pandas as pd
 import requests
-imax_theaters_df = pd.read_csv('list_of_IMAX.csv')
+from geopy.geocoders import Nominatim
 
-import requests
+imax_theaters_df = pd.read_csv('list_of_IMAX.csv')
 
 def get_cinema_data_osm(lat, lon, radius_km=20):
     """
@@ -52,5 +52,14 @@ def get_cinema_data_osm(lat, lon, radius_km=20):
     except Exception as e:
         # Return None or empty list so future code can handle gracefully
         return []
+
+
+geolocator = Nominatim(user_agent="imax_site_selector")
+
+def get_lat_lon_from_city(city_name):
+    location = geolocator.geocode(city_name)
+    if location:
+        return location.latitude, location.longitude
+    return None, None
 
 
