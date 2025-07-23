@@ -1,0 +1,1468 @@
+Buenos Aires, ARGENTINA -> Buenos Aires, Colombia
+Buenos Aires, ARGENTINA -> Buenos Aires, Brazil
+Melbourne, AUSTRALIA -> Melbourne, United States
+Hartberg, AUSTRIA -> None, None
+Pasching, AUSTRIA -> None, None
+St. Polten, AUSTRIA -> None, None
+Vienna, AUSTRIA -> Vienna, United States
+Vienna, AUSTRIA -> Vienna, United States
+Vienna, AUSTRIA -> Vienna, United States
+Vienna, AUSTRIA -> Vienna, United States
+Astrakhan, AZERBAIJAN -> Astrakhan, Russia
+Nassau, BAHAMAS -> Nassau, Bahamas, The
+Muharraq, BAHRAIN -> None, None
+Ribeirao Preto, BRAZIL -> None, None
+Sao Paulo, BRAZIL -> None, None
+Sao Paulo, BRAZIL -> None, None
+Sao Paulo, BRAZIL -> None, None
+Sao Paulo, BRAZIL -> None, None
+Edmonton, CANADA -> Edmonton, United Kingdom
+Edmonton, CANADA -> Edmonton, United Kingdom
+Richmond, CANADA -> Richmond, United States
+Richmond, CANADA -> Richmond, United States
+Richmond, CANADA -> Richmond, United States
+Richmond, CANADA -> Richmond, United States
+Richmond, CANADA -> Richmond, United Kingdom
+Richmond, CANADA -> Richmond, New Zealand
+Richmond, CANADA -> Richmond, United States
+Richmond, CANADA -> Richmond, Australia
+Richmond, CANADA -> Richmond, Australia
+Vancouver, CANADA -> Vancouver, United States
+Victoria, CANADA -> Victoria, Philippines
+Victoria, CANADA -> Victoria, United States
+Victoria, CANADA -> Victoria, Philippines
+Victoria, CANADA -> Victoria, Philippines
+Victoria, CANADA -> Victoria, Chile
+Victoria, CANADA -> Victoria, Argentina
+Victoria, CANADA -> Victoria, Seychelles
+Victoria, CANADA -> Victoria, Philippines
+Victoria, CANADA -> Victoria, El Salvador
+Victoria, CANADA -> Victoria, United States
+Victoria, CANADA -> Victoria, Malta
+Victoria, CANADA -> Victoria, Philippines
+Victoria, CANADA -> Victoria, United States
+Victoria, CANADA -> Victoria, Philippines
+Victoria, CANADA -> Victoria, Philippines
+Victoria, CANADA -> Victoria, Chile
+Victoria, CANADA -> Victoria, Argentina
+Victoria, CANADA -> Victoria, Seychelles
+Victoria, CANADA -> Victoria, Philippines
+Victoria, CANADA -> Victoria, El Salvador
+Victoria, CANADA -> Victoria, United States
+Victoria, CANADA -> Victoria, Malta
+Halifax, CANADA -> Halifax, United Kingdom
+Ancaster, CANADA -> None, None
+Gloucester, CANADA -> Gloucester, United Kingdom
+Gloucester, CANADA -> Gloucester, United States
+Gloucester, CANADA -> Gloucester, United States
+Kingston, CANADA -> Kingston, Jamaica
+Kingston, CANADA -> Kingston, United States
+Kingston, CANADA -> Kingston, United States
+Kingston, CANADA -> Kingston, United States
+Kingston, CANADA -> Kingston, Australia
+Kingston, CANADA -> Kingston, Norfolk Island
+London, CANADA -> London, United Kingdom
+London, CANADA -> London, United States
+Markham, CANADA -> Markham, United States
+Niagara Falls, CANADA -> Niagara Falls, United States
+North York, CANADA -> None, None
+Oakville, CANADA -> Oakville, United States
+Oakville, CANADA -> Oakville, United States
+Sudbury, CANADA -> Sudbury, United Kingdom
+Sudbury, CANADA -> Sudbury, United States
+Sudbury, CANADA -> Sudbury, United Kingdom
+Whitby, CANADA -> Whitby, United Kingdom
+Windsor, CANADA -> Windsor, United States
+Windsor, CANADA -> Windsor, United Kingdom
+Windsor, CANADA -> Windsor, United States
+Windsor, CANADA -> Windsor, United States
+Deux Montagnes, CANADA -> None, None
+Greenfield Park, CANADA -> None, None
+Greenfield Park, CANADA -> None, None
+Laval, CANADA -> Laval, France
+Montreal, CANADA -> None, None
+Montreal, CANADA -> None, None
+Montreal, CANADA -> None, None
+Montreal, CANADA -> None, None
+Montreal, CANADA -> None, None
+Quebec, CANADA -> None, None
+Saint Félicien, CANADA -> None, None
+Santiago, CHILE -> Santiago, Dominican Republic
+Santiago, CHILE -> Santiago, Philippines
+Santiago, CHILE -> Santiago, Brazil
+Santiago, CHILE -> Santiago, Mexico
+Santiago, CHILE -> Santiago, Panama
+Santiago, CHILE -> Santiago, Philippines
+Santiago, CHILE -> Santiago, Philippines
+Santiago, CHILE -> Santiago, Costa Rica
+Santiago, CHILE -> Santiago, Peru
+Anyang, CHINA -> Anyang, Korea, South
+Bejing, CHINA -> None, None
+Changzhi, CHINA -> Changzhi, Taiwan
+Cixi, CHINA -> None, None
+Datong, CHINA -> None, None
+Dongying, CHINA -> None, None
+Dongying, CHINA -> None, None
+Guangzhou University City, CHINA -> None, None
+Hanzhou, CHINA -> None, None
+Hong Kong, CHINA -> Hong Kong, Hong Kong
+Hong Kong, CHINA -> Hong Kong, Hong Kong
+Hong Kong, CHINA -> Hong Kong, Hong Kong
+Hong Kong, CHINA -> Hong Kong, Hong Kong
+Hong Kong, CHINA -> Hong Kong, Hong Kong
+Huai'an, CHINA -> None, None
+Huai'an, CHINA -> None, None
+Jianyang, CHINA -> None, None
+Jingmen, CHINA -> None, None
+Jiuquan, CHINA -> None, None
+Kaifeng, CHINA -> None, None
+Kunshan, CHINA -> None, None
+Kunshan, CHINA -> None, None
+Lianyungang, CHINA -> None, None
+Liupanshui, CHINA -> None, None
+Liyang, CHINA -> None, None
+Ma'anshan, CHINA -> None, None
+Meishan, CHINA -> Meishan, Taiwan
+Mongkok, CHINA -> None, None
+Panjin, CHINA -> None, None
+Taian, CHINA -> None, None
+Taicang, CHINA -> None, None
+TBD, CHINA -> None, None
+Urumqi, CHINA -> None, None
+Urumqi, CHINA -> None, None
+Urumqi, CHINA -> None, None
+Xi'An, CHINA -> None, None
+Xi'An, CHINA -> None, None
+Xi'an, CHINA -> None, None
+Xi'an, CHINA -> None, None
+Xi'an, CHINA -> None, None
+Xinxiang, CHINA -> None, None
+Xishuangbanna, CHINA -> None, None
+Xuancheng, CHINA -> None, None
+Xuzhou, CHINA -> None, None
+Xuzhou, CHINA -> None, None
+Ya'an, CHINA -> None, None
+Yichang, CHINA -> None, None
+Yichang, CHINA -> None, None
+Yixing, CHINA -> None, None
+Zhangjiagang, CHINA -> None, None
+Zhangjiagang, CHINA -> None, None
+Ziyang, CHINA -> None, None
+Xiaogan, CHINA -> None, None
+Kunshan, CHINA -> None, None
+Lianyungang, CHINA -> None, None
+Ji'nan, CHINA -> None, None
+Shangain, CHINA -> None, None
+Xi'an, CHINA -> None, None
+Xi-An, CHINA -> None, None
+Xi'an, CHINA -> None, None
+Bogota, COLOMBIA -> Bogota, United States
+Bogota, COLOMBIA -> Bogota, United States
+Santiago de Cali, COLOMBIA -> None, None
+San Jose, COSTA RICA -> San Jose, United States
+San Jose, COSTA RICA -> San Jose, Philippines
+San Jose, COSTA RICA -> San Jose, Philippines
+San Jose, COSTA RICA -> San Jose, Philippines
+San Jose, COSTA RICA -> San Jose, Philippines
+San Jose, COSTA RICA -> San Jose, Philippines
+San Jose, COSTA RICA -> San Jose, Philippines
+San Jose, COSTA RICA -> San Jose, Philippines
+San Jose, COSTA RICA -> San Jose, Philippines
+San Jose, COSTA RICA -> San Jose, Philippines
+Prague, CZECH REPUBLIC -> Prague, Czechia
+Santo Domingo, DOMINICAN REPUBLIC -> Santo Domingo, Philippines
+Santo Domingo, DOMINICAN REPUBLIC -> Santo Domingo, Cuba
+Santo Domingo, DOMINICAN REPUBLIC -> Santo Domingo, Costa Rica
+Santo Domingo, DOMINICAN REPUBLIC -> Santo Domingo, Philippines
+Santo Domingo, DOMINICAN REPUBLIC -> Santo Domingo, Philippines
+Santo Domingo, DOMINICAN REPUBLIC -> Santo Domingo, Nicaragua
+Santo Domingo, DOMINICAN REPUBLIC -> Santo Domingo, Colombia
+Norta Guayaquil, ECUADOR -> None, None
+Alexandria, EGYPT -> Alexandria, United States
+Alexandria, EGYPT -> Alexandria, United States
+Alexandria, EGYPT -> Alexandria, Romania
+Alexandria, EGYPT -> Alexandria, United States
+Alexandria, EGYPT -> Alexandria, Brazil
+Alexandria, EGYPT -> Alexandria, United States
+Alexandria, EGYPT -> Alexandria, South Africa
+Cairo, EGYPT -> Cairo, United States
+Cairo, EGYPT -> Cairo, United States
+Cairo, EGYPT -> Cairo, United States
+Oulun Kapunki, FINLAND -> None, None
+Archamps, FRANCE -> None, None
+Carré de Soie, FRANCE -> None, None
+Grand Quevilly, FRANCE -> None, None
+Jaunay-Clan, FRANCE -> None, None
+Jaunay-Clan, FRANCE -> None, None
+Labege Innopole, FRANCE -> None, None
+Les Pennes Mirabeaux, FRANCE -> None, None
+Marne-la-Vallée, FRANCE -> None, None
+Paris, FRANCE -> Paris, United States
+Paris, FRANCE -> Paris, Canada
+Paris, FRANCE -> Paris, United States
+Paris, FRANCE -> Paris, United States
+Paris, FRANCE -> Paris, United States
+Paris, FRANCE -> Paris, Canada
+Paris, FRANCE -> Paris, United States
+Paris, FRANCE -> Paris, United States
+St. Ours-Les-Roche, FRANCE -> None, None
+Thillois, FRANCE -> None, None
+Berlin, GERMANY -> Berlin, United States
+Dusseldorf, Germany -> None, None
+Hamburg, GERMANY -> Hamburg, United States
+Hamburg, GERMANY -> Hamburg, United States
+Athens, GREECE -> Athens, United States
+Athens, GREECE -> Athens, United States
+Athens, GREECE -> Athens, United States
+Athens, GREECE -> Athens, United States
+Athens, GREECE -> Athens, United States
+Thessaloniki, GREECE -> None, None
+Thessaloniki, GREECE -> None, None
+Bengaluru, INDIA -> None, None
+Delhi, INDIA -> Delhi, United States
+Hyderabad, INDIA -> None, None
+Kolkatta, INDIA -> None, None
+Thane, INDIA -> None, None
+Kapurthala, INDIA -> None, None
+Kolkata, INDIA -> None, None
+North Jakarta, INDONESIA -> None, None
+Dublin, IRELAND -> Dublin, United States
+Dublin, IRELAND -> Dublin, United States
+Dublin, IRELAND -> Dublin, United States
+Dublin, IRELAND -> Dublin, United States
+Dublin, IRELAND -> Dublin, United States
+Dublin, IRELAND -> Dublin, United States
+Be'er Sheva, ISRAEL -> None, None
+Rishon Lezion, ISRAEL -> None, None
+Florence, ITALY -> Florence, United States
+Florence, ITALY -> Florence, United States
+Florence, ITALY -> Florence, United States
+Florence, ITALY -> Florence, United States
+Florence, ITALY -> Florence, United States
+Florence, ITALY -> Florence, United States
+Rome, ITALY -> Rome, United States
+Rome, ITALY -> Rome, United States
+Fujisawa City, JAPAN -> None, None
+Fukita-shi, JAPAN -> None, None
+Ichihara City, JAPAN -> None, None
+Kyoto, JAPAN -> None, None
+Matsuyama-shi, JAPAN -> None, None
+Minamisaitama-gun, JAPAN -> None, None
+Nagoya-shi, JAPAN -> None, None
+Osaka, JAPAN -> None, None
+Osaka, JAPAN -> None, None
+Tsuchiura-shi, JAPAN -> None, None
+Toyohashi-shi, JAPAN -> None, None
+Sakai-gun, JAPAN -> None, None
+Kurume-shi, JAPAN -> None, None
+Koriyama City, JAPAN -> None, None
+Tatebayashi-shi, JAPAN -> None, None
+Kagawa-gun, JAPAN -> None, None
+Kagoshima City, JAPAN -> None, None
+Fujisawa-shi, JAPAN -> None, None
+Sagamihara-shi, JAPAN -> None, None
+Matsusaka City, JAPAN -> None, None
+Nagasaki-shi, JAPAN -> None, None
+Yamatokoriyama-shi, JAPAN -> None, None
+Kurashiki-shi, JAPAN -> None, None
+Osaka-shi, JAPAN -> None, None
+Kishiawada City, JAPAN -> None, None
+Tondabayashi-shi, JAPAN -> None, None
+Urawa, JAPAN -> None, None
+Saitama-shi, JAPAN -> None, None
+Saitama-shi, JAPAN -> None, None
+Hamaoka, JAPAN -> None, None
+Chiyodaku, JAPAN -> None, None
+Minato-Ku, JAPAN -> None, None
+Kofu-shi, JAPAN -> None, None
+Fahaheel, KUWAIT -> None, None
+Salmiya, KUWAIT -> None, None
+Genting Highlands, MALAYSIA -> None, None
+Penang, MALAYSIA -> None, None
+Naucalpan, MEXICO -> None, None
+Juarez, MEXICO -> None, None
+Leon, MEXICO -> Leon, Philippines
+Guadalajara, MEXICO -> Guadalajara, Spain
+Guadalajara, MEXICO -> Guadalajara, Spain
+Monterrey, MEXICO -> Monterrey, Colombia
+Monterrey, MEXICO -> Monterrey, Colombia
+Monterrey, MEXICO -> Monterrey, Colombia
+Cancun, MEXICO -> None, None
+Casablanca, MOROCCO -> Casablanca, Chile
+Amsterdam, NETHERLANDS -> Amsterdam, United States
+Hague, NETHERLANDS -> None, None
+Hague, NETHERLANDS -> None, None
+Rotterdam, NETHERLANDS -> Rotterdam, United States
+Lagos, NIGERIA -> Lagos, Portugal
+Panama City, PANAMA -> Panama City, United States
+Panama City, PANAMA -> Panama City, United States
+Cebu, PHILIPPINES -> None, None
+Davao City, PHILIPPINES -> None, None
+Las Pinas, PHILIPPINES -> None, None
+Las Pinas, PHILIPPINES -> None, None
+Krakow, POLAND -> None, None
+Lodz, POLAND -> None, None
+Poznan, POLAND -> None, None
+Warsaw, POLAND -> Warsaw, United States
+Wroclaw, POLAND -> None, None
+Alcabideche, PORTUGAL -> None, None
+Lisbon, PORTUGAL -> Lisbon, United States
+Timisoara, ROMANIA -> None, None
+Moscow, RUSSIA -> Moscow, United States
+Moscow, RUSSIA -> Moscow, United States
+Moscow, RUSSIA -> Moscow, United States
+Moscow, RUSSIA -> Moscow, United States
+Moscow, RUSSIA -> Moscow, United States
+Moscow, RUSSIA -> Moscow, United States
+Moscow, RUSSIA -> Moscow, United States
+Moscow, RUSSIA -> Moscow, United States
+Moscow, RUSSIA -> Moscow, United States
+Moscow, RUSSIA -> Moscow, United States
+Moscow, RUSSIA -> Moscow, United States
+Moscow, RUSSIA -> Moscow, United States
+Mytischy, RUSSIA -> None, None
+Naberezhnye Chelny, RUSSIA -> None, None
+Nizhny Novgorod, RUSSIA -> None, None
+Rostov-on-Don, RUSSIA -> None, None
+Syktivkar, RUSSIA -> None, None
+Tumen, RUSSIA -> Tumen, China
+Ulan Ude, RUSSIA -> None, None
+Vladivostock, RUSSIA -> None, None
+Abha, SAUDI ARABIA -> None, None
+Al Khobar, SAUDI ARABIA -> None, None
+Hafr Al Batin,, SAUDI ARABIA -> None, None
+Port Elizabeth, SOUTH AFRICA -> None, None
+Bucheon-si, SOUTH KOREA -> None, None
+Busan, SOUTH KOREA -> Busan, Korea, South
+Changwon, SOUTH KOREA -> Changwon, Korea, South
+Chuncheon-si, SOUTH KOREA -> None, None
+Daegu, SOUTH KOREA -> Daegu, Korea, South
+Daejeon, SOUTH KOREA -> Daejeon, Korea, South
+Daejeon, SOUTH KOREA -> Daejeon, Korea, South
+Goyangsi, SOUTH KOREA -> None, None
+Incheon, SOUTH KOREA -> Incheon, Korea, South
+Jeonju, SOUTH KOREA -> Jeonju, Korea, South
+Seongnam, SOUTH KOREA -> None, None
+Seoul, SOUTH KOREA -> Seoul, Korea, South
+Seoul, SOUTH KOREA -> Seoul, Korea, South
+Suwon, SOUTH KOREA -> Suwon, Korea, South
+Uijeongbu, SOUTH KOREA -> Uijeongbu, Korea, South
+Ulsan, SOUTH KOREA -> Ulsan, Korea, South
+Yongsang, SOUTH KOREA -> None, None
+Gwangju, SOUTH KOREA -> Gwangju, Korea, South
+Gwangju, SOUTH KOREA -> Gwangju, Korea, South
+Suwon, SOUTH KOREA -> Suwon, Korea, South
+Madrid, SPAIN -> Madrid, Colombia
+Madrid, SPAIN -> Madrid, Philippines
+Madrid, SPAIN -> Madrid, Colombia
+Madrid, SPAIN -> Madrid, Philippines
+Valencia, SPAIN -> Valencia, Venezuela
+Valencia, SPAIN -> Valencia, Philippines
+Valencia, SPAIN -> Valencia, Colombia
+Valencia, SPAIN -> Valencia, Philippines
+Valencia, SPAIN -> Valencia, Philippines
+Valencia, SPAIN -> Valencia, Ecuador
+Valencia, SPAIN -> Valencia, Trinidad and Tobago
+Ebikon-Lucerne, SWITZERLAND -> None, None
+Geneva, SWITZERLAND -> Geneva, United States
+Geneva, SWITZERLAND -> Geneva, United States
+Muri bei Bern, SWITZERLAND -> None, None
+Taoyuan City, TAIWAN -> None, None
+Hualein, TAIWAN -> None, None
+Chiangmai, THAILAND -> None, None
+Port of Spain, TRINIDAD -> Port of Spain, Trinidad and Tobago
+Istinye-Istanbul, TURKEY -> None, None
+Izmir, TURKEY -> None, None
+Abu Dhabi, UAE -> Abu Dhabi, United Arab Emirates
+Dubai, UAE -> Dubai, United Arab Emirates
+Dubai, UAE -> Dubai, United Arab Emirates
+Dubai, UAE -> Dubai, United Arab Emirates
+Dubai, UAE -> Dubai, United Arab Emirates
+Dubai, UAE -> Dubai, United Arab Emirates
+Sharjah, UAE -> Sharjah, United Arab Emirates
+Ashton-Under-Lyne, UK -> None, None
+Basildon, UK -> Basildon, United Kingdom
+Birmingham, UK -> Birmingham, United Kingdom
+Birmingham, UK -> Birmingham, United States
+Birmingham, UK -> Birmingham, United States
+Birmingham, UK -> Birmingham, United Kingdom
+Birmingham, UK -> Birmingham, United States
+Birmingham, UK -> Birmingham, United States
+Birmingham, UK -> Birmingham, United Kingdom
+Birmingham, UK -> Birmingham, United States
+Birmingham, UK -> Birmingham, United States
+Bradford, UK -> Bradford, United Kingdom
+Bradford, UK -> Bradford, Canada
+Cambridge, UK -> Cambridge, Canada
+Cambridge, UK -> Cambridge, United Kingdom
+Cambridge, UK -> Cambridge, United States
+Cambridge, UK -> Cambridge, New Zealand
+Cambridge, UK -> Cambridge, United States
+Cambridge, UK -> Cambridge, United States
+Cambridge, UK -> Cambridge, United States
+Cardiff, UK -> None, None
+Cheltenham, UK -> Cheltenham, United Kingdom
+Cheltenham, UK -> Cheltenham, United States
+Chichester, UK -> Chichester, United Kingdom
+Crawley, UK -> Crawley, United Kingdom
+Edinburgh, UK -> Edinburgh, United Kingdom
+Enfield, UK -> Enfield, United Kingdom
+Gateshead, UK -> Gateshead, United Kingdom
+Greenhithe, UK -> None, None
+Hemel Hempstead, UK -> Hemel Hempstead, United Kingdom
+Ipswich, UK -> Ipswich, Australia
+Ipswich, UK -> Ipswich, United Kingdom
+Ipswich, UK -> Ipswich, United States
+Kingston Upon Thames, UK -> Kingston upon Thames, United Kingdom
+Leeds, UK -> Leeds, United Kingdom
+Leeds, UK -> Leeds, United States
+Leeds, UK -> Leeds, United Kingdom
+Leeds, UK -> Leeds, United States
+Liverpool, UK -> Liverpool, United Kingdom
+London, UK -> London, United Kingdom
+London, UK -> London, Canada
+London, UK -> London, United States
+London, UK -> London, United Kingdom
+London, UK -> London, Canada
+London, UK -> London, United States
+London, UK -> London, United Kingdom
+London, UK -> London, Canada
+London, UK -> London, United States
+London, UK -> London, United Kingdom
+London, UK -> London, Canada
+London, UK -> London, United States
+London, UK -> London, United Kingdom
+London, UK -> London, Canada
+London, UK -> London, United States
+Manchester, UK -> Manchester, United Kingdom
+Manchester, UK -> Manchester, United States
+Manchester, UK -> Manchester, United States
+Manchester, UK -> Manchester, United States
+Manchester, UK -> Manchester, United States
+Manchester, UK -> Manchester, United States
+Manchester, UK -> Manchester, United States
+Manchester, UK -> Manchester, United Kingdom
+Manchester, UK -> Manchester, United States
+Manchester, UK -> Manchester, United States
+Manchester, UK -> Manchester, United States
+Manchester, UK -> Manchester, United States
+Manchester, UK -> Manchester, United States
+Manchester, UK -> Manchester, United States
+Milton Keynes, UK -> Milton Keynes, United Kingdom
+Norwich, UK -> Norwich, United Kingdom
+Norwich, UK -> Norwich, United States
+Norwich, UK -> Norwich, Canada
+Nottingham, UK -> Nottingham, United Kingdom
+Penrith, UK -> Penrith, United Kingdom
+Penrith, UK -> Penrith, Australia
+Perth, UK -> Perth, Australia
+Perth, UK -> Perth, United Kingdom
+Renfrew, UK -> Renfrew, United Kingdom
+Sheffield, UK -> Sheffield, United Kingdom
+Sheffield, UK -> Sheffield, United States
+South Wirral, UK -> None, None
+Southampton, UK -> Southampton, United Kingdom
+Southampton, UK -> Southampton, United States
+Southampton, UK -> Southampton, United States
+Southampton, UK -> Southampton, United States
+Stevenage, UK -> Stevenage, United Kingdom
+Swindon, UK -> Swindon, United Kingdom
+Telford, UK -> Telford, United Kingdom
+Uxbridge, UK -> Uxbridge, United Kingdom
+Uxbridge, UK -> Uxbridge, Canada
+Uxbridge, UK -> Uxbridge, United States
+Wallsend, UK -> Wallsend, United Kingdom
+Watford, UK -> Watford, United Kingdom
+Wimbledon, UK -> Wimbledon, United Kingdom
+York, UK -> York, United States
+York, UK -> York, United Kingdom
+York, UK -> York, United States
+York, UK -> York, United States
+Broughton, UK -> Broughton, United Kingdom
+Dnieper, UKRAINE -> None, None
+Kiev, UKRAINE -> None, None
+Kiev, UKRAINE -> None, None
+Kiev, Ukraine -> None, None
+Odessa, UKRAINE -> Odessa, United States
+Anchorage, USA -> Anchorage, United States
+Fairbanks, USA -> Fairbanks, United States
+Birmingham, USA -> Birmingham, United Kingdom
+Birmingham, USA -> Birmingham, United States
+Birmingham, USA -> Birmingham, United States
+Hoover, USA -> Hoover, United States
+Huntsville, USA -> Huntsville, United States
+Huntsville, USA -> Huntsville, United States
+Huntsville, USA -> Huntsville, Canada
+Huntsville, USA -> Huntsville, United States
+Huntsville, USA -> Huntsville, United States
+Huntsville, USA -> Huntsville, Canada
+Mobile, USA -> Mobile, United States
+Montgomery, USA -> Montgomery, United States
+Montgomery, USA -> Montgomery, United States
+Montgomery, USA -> Montgomery, United States
+Montgomery, USA -> Montgomery, United States
+Montgomery, USA -> Montgomery, United States
+Montgomery, USA -> Montgomery, United States
+Tuscaloosa, USA -> Tuscaloosa, United States
+Fayetteville, USA -> Fayetteville, United States
+Fayetteville, USA -> Fayetteville, United States
+Fayetteville, USA -> Fayetteville, United States
+Little Rock, USA -> Little Rock, United States
+Glendale, USA -> Glendale, United States
+Glendale, USA -> Glendale, United States
+Glendale, USA -> Glendale, United States
+Grand Canyon, USA -> None, None
+Mesa, USA -> Mesa, United States
+Phoenix, USA -> Phoenix, United States
+Phoenix, USA -> Phoenix, United States
+Phoenix, USA -> Phoenix, United States
+Surprise, USA -> Surprise, United States
+Tempe, USA -> Tempe, United States
+Tucson, USA -> Tucson, United States
+Alhambra, USA -> Alhambra, United States
+Aliso Viejo, USA -> Aliso Viejo, United States
+Arcadia, USA -> Arcadia, United States
+Arcadia, USA -> Arcadia, United States
+Bakersfield, USA -> Bakersfield, United States
+Brentwood, USA -> Brentwood, United States
+Brentwood, USA -> Brentwood, United Kingdom
+Brentwood, USA -> Brentwood, United States
+Brentwood, USA -> Brentwood, United States
+Burbank, USA -> Burbank, United States
+Burbank, USA -> Burbank, United States
+Camarillo, USA -> Camarillo, United States
+Concord, USA -> Concord, United States
+Concord, USA -> Concord, United States
+Concord, USA -> Concord, United States
+Concord, USA -> Concord, United States
+Concord, USA -> Concord, United States
+Concord, USA -> Concord, United States
+Covina, USA -> Covina, United States
+Daly City, USA -> Daly City, United States
+Dublin, USA -> Dublin, Ireland
+Dublin, USA -> Dublin, United States
+Dublin, USA -> Dublin, United States
+Dublin, USA -> Dublin, United States
+El Cajon, USA -> El Cajon, United States
+El Dorado Hills, USA -> El Dorado Hills, United States
+Emeryville, USA -> Emeryville, United States
+Escondido, USA -> Escondido, United States
+Fairfield, USA -> Fairfield, United States
+Fairfield, USA -> Fairfield, United States
+Fairfield, USA -> Fairfield, United States
+Fairfield, USA -> Fairfield, United States
+Fresno, USA -> Fresno, United States
+Fresno, USA -> Fresno, Colombia
+Fresno, USA -> Fresno, United States
+Glendora, USA -> Glendora, United States
+Hollywood, USA -> Hollywood, United States
+Irvine, USA -> Irvine, United States
+Irvine, USA -> Irvine, United Kingdom
+Long Beach, USA -> Long Beach, United States
+Long Beach, USA -> Long Beach, United States
+Long Beach, USA -> Long Beach, United States
+Los Angeles, USA -> Los Angeles, United States
+Los Angeles, USA -> Los Angeles, United States
+Montclair, USA -> Montclair, United States
+Montclair, USA -> Montclair, United States
+Montclair, USA -> Montclair, United States
+National City, USA -> National City, United States
+Newark, USA -> Newark, United States
+Newark, USA -> Newark, United States
+Newark, USA -> Newark, United States
+Newark, USA -> Newark, United States
+Newark, USA -> Newark, United States
+Norwalk, USA -> Norwalk, United States
+Norwalk, USA -> Norwalk, United States
+Norwalk, USA -> Norwalk, United States
+Norwalk, USA -> Norwalk, United States
+Oakland, USA -> Oakland, United States
+Oakland, USA -> Oakland, United States
+Oakland, USA -> Oakland, United States
+Ontario, USA -> Ontario, United States
+Ontario, USA -> Ontario, United States
+Ontario, USA -> Ontario, United States
+Orange, USA -> Orange, United States
+Orange, USA -> Orange, Australia
+Orange, USA -> Orange, France
+Orange, USA -> Orange, United States
+Rancho Mirage, USA -> Rancho Mirage, United States
+Riverbank, USA -> Riverbank, United States
+Riverside, USA -> Riverside, United States
+Riverside, USA -> Riverside, United States
+Riverside, USA -> Riverside, United States
+Riverside, USA -> Riverside, United States
+Rowland Heights, USA -> Rowland Heights, United States
+Sacramento, USA -> Sacramento, United States
+Sacramento, USA -> Sacramento, Brazil
+Sacramento, USA -> Sacramento, United States
+Sacramento, USA -> Sacramento, Brazil
+San Diego, USA -> San Diego, United States
+San Diego, USA -> San Diego, Venezuela
+San Diego, USA -> San Diego, Colombia
+San Diego, USA -> San Diego, United States
+San Diego, USA -> San Diego, Venezuela
+San Diego, USA -> San Diego, Colombia
+San Diego, USA -> San Diego, United States
+San Diego, USA -> San Diego, Venezuela
+San Diego, USA -> San Diego, Colombia
+San Diego, USA -> San Diego, United States
+San Diego, USA -> San Diego, Venezuela
+San Diego, USA -> San Diego, Colombia
+San Diego, USA -> San Diego, United States
+San Diego, USA -> San Diego, Venezuela
+San Diego, USA -> San Diego, Colombia
+San Francisco, USA -> San Francisco, United States
+San Francisco, USA -> San Francisco, Mexico
+San Francisco, USA -> San Francisco, Philippines
+San Francisco, USA -> San Francisco, Argentina
+San Francisco, USA -> San Francisco, Philippines
+San Francisco, USA -> San Francisco, El Salvador
+San Francisco, USA -> San Francisco, Costa Rica
+San Francisco, USA -> San Francisco, Guatemala
+San Francisco, USA -> San Francisco, Honduras
+San Francisco, USA -> San Francisco, Honduras
+San Jose, USA -> San Jose, United States
+San Jose, USA -> San Jose, Philippines
+San Jose, USA -> San Jose, Philippines
+San Jose, USA -> San Jose, Philippines
+San Jose, USA -> San Jose, Philippines
+San Jose, USA -> San Jose, Philippines
+San Jose, USA -> San Jose, Philippines
+San Jose, USA -> San Jose, Philippines
+San Jose, USA -> San Jose, Philippines
+San Jose, USA -> San Jose, Philippines
+San Jose, USA -> San Jose, United States
+San Jose, USA -> San Jose, Philippines
+San Jose, USA -> San Jose, Philippines
+San Jose, USA -> San Jose, Philippines
+San Jose, USA -> San Jose, Philippines
+San Jose, USA -> San Jose, Philippines
+San Jose, USA -> San Jose, Philippines
+San Jose, USA -> San Jose, Philippines
+San Jose, USA -> San Jose, Philippines
+San Jose, USA -> San Jose, Philippines
+San Jose, USA -> San Jose, United States
+San Jose, USA -> San Jose, Philippines
+San Jose, USA -> San Jose, Philippines
+San Jose, USA -> San Jose, Philippines
+San Jose, USA -> San Jose, Philippines
+San Jose, USA -> San Jose, Philippines
+San Jose, USA -> San Jose, Philippines
+San Jose, USA -> San Jose, Philippines
+San Jose, USA -> San Jose, Philippines
+San Jose, USA -> San Jose, Philippines
+San Simeon, USA -> None, None
+Santa Clara, USA -> Santa Clara, Cuba
+Santa Clara, USA -> Santa Clara, United States
+Santa Clara, USA -> Santa Clara, United States
+Santa Clara, USA -> Santa Clara, Portugal
+Santa Clarita, USA -> Santa Clarita, United States
+Simi Valley, USA -> Simi Valley, United States
+South Gate, USA -> South Gate, United States
+Stockton, USA -> Stockton, United States
+Sunnyvale, USA -> Sunnyvale, United States
+Temecula, USA -> Temecula, United States
+Torrance, USA -> Torrance, United States
+Torrance, USA -> Torrance, United States
+Universal City, USA -> Universal City, United States
+Woodland Hills, USA -> None, None
+Yorba Linda, USA -> Yorba Linda, United States
+Aurora, USA -> Aurora, United States
+Aurora, USA -> Aurora, United States
+Aurora, USA -> Aurora, Philippines
+Aurora, USA -> Aurora, Canada
+Aurora, USA -> Aurora, Philippines
+Aurora, USA -> Aurora, Philippines
+Aurora, USA -> Aurora, Brazil
+Aurora, USA -> Aurora, United States
+Aurora, USA -> Aurora, United States
+Broomfield, USA -> Broomfield, United States
+Colorado Springs, USA -> Colorado Springs, United States
+Denver, USA -> Denver, United States
+Denver, USA -> Denver, United States
+Highlands Ranch, USA -> Highlands Ranch, United States
+Lakewood, USA -> Lakewood, United States
+Lakewood, USA -> Lakewood, United States
+Lakewood, USA -> Lakewood, United States
+Lakewood, USA -> Lakewood, United States
+Lakewood, USA -> Lakewood, United States
+Parker, USA -> Parker, United States
+Parker, USA -> Parker, United States
+USAFA, USA -> None, None
+Westminster, USA -> Westminster, United Kingdom
+Westminster, USA -> Westminster, United States
+Westminster, USA -> Westminster, United States
+Westminster, USA -> Westminster, United States
+Westminster, USA -> Westminster, United Kingdom
+Westminster, USA -> Westminster, United States
+Westminster, USA -> Westminster, United States
+Westminster, USA -> Westminster, United States
+Danbury, USA -> Danbury, United States
+Manchester, USA -> Manchester, United Kingdom
+Manchester, USA -> Manchester, United States
+Manchester, USA -> Manchester, United States
+Manchester, USA -> Manchester, United States
+Manchester, USA -> Manchester, United States
+Manchester, USA -> Manchester, United States
+Manchester, USA -> Manchester, United States
+Milford, USA -> Milford, United States
+Milford, USA -> Milford, United States
+Milford, USA -> Milford, United States
+Milford, USA -> Milford, United States
+Plainville, USA -> Plainville, United States
+Washington, USA -> Washington, United States
+Washington, USA -> Washington, United Kingdom
+Washington, USA -> Washington, United States
+Washington, USA -> Washington, United States
+Washington, USA -> Washington, United States
+Washington, USA -> Washington, United States
+Washington, USA -> Washington, United States
+Washington, USA -> Washington, United States
+Washington, USA -> Washington, United States
+Washington, USA -> Washington, United States
+Washington, USA -> Washington, United States
+Washington, USA -> Washington, United States
+Washington, USA -> Washington, United States
+Washington, USA -> Washington, United Kingdom
+Washington, USA -> Washington, United States
+Washington, USA -> Washington, United States
+Washington, USA -> Washington, United States
+Washington, USA -> Washington, United States
+Washington, USA -> Washington, United States
+Washington, USA -> Washington, United States
+Washington, USA -> Washington, United States
+Washington, USA -> Washington, United States
+Washington, USA -> Washington, United States
+Washington, USA -> Washington, United States
+Wilmington, USA -> Wilmington, United States
+Wilmington, USA -> Wilmington, United States
+Wilmington, USA -> Wilmington, United States
+Wilmington, USA -> Wilmington, United States
+Altamonte, USA -> None, None
+Aventura, USA -> Aventura, United States
+Brandon, USA -> Brandon, United States
+Brandon, USA -> Brandon, Canada
+Brandon, USA -> Brandon, United States
+Brandon, USA -> Brandon, United States
+Brandon, USA -> Brandon, United Kingdom
+Davenport, USA -> Davenport, United States
+Davenport, USA -> Davenport, United States
+Delray Beach, USA -> Delray Beach, United States
+Destin, USA -> Destin, United States
+Fort Lauderdale, USA -> Fort Lauderdale, United States
+Fort Myers, USA -> Fort Myers, United States
+Jacksonville, USA -> Jacksonville, United States
+Jacksonville, USA -> Jacksonville, United States
+Jacksonville, USA -> Jacksonville, United States
+Jacksonville, USA -> Jacksonville, United States
+Jacksonville, USA -> Jacksonville, United States
+Jacksonville, USA -> Jacksonville, United States
+Kennedy Space Center, USA -> None, None
+Kennedy Space Center, USA -> None, None
+Lakeland, USA -> Lakeland, United States
+Lakeland, USA -> Lakeland, United States
+Merritt Island, USA -> Merritt Island, United States
+Miami, USA -> Miami, United States
+Miami, USA -> Miami, United States
+Miami, USA -> Miami, United States
+Miami, USA -> Miami, United States
+Miami, USA -> Miami, United States
+Miami, USA -> Miami, United States
+Miami, USA -> Miami, United States
+Miami, USA -> Miami, United States
+Miami Beach, USA -> Miami Beach, United States
+Naples, USA -> Naples, Italy
+Naples, USA -> Naples, United States
+NAS Pensacola, USA -> None, None
+Ocala, USA -> Ocala, United States
+Oldsmar, USA -> Oldsmar, United States
+Orange Park, USA -> Orange Park, United States
+Orlando, USA -> Orlando, United States
+Orlando, USA -> Orlando, United States
+Orlando, USA -> Orlando, United States
+Panama City Beach, USA -> Panama City Beach, United States
+Pembroke Pines, USA -> Pembroke Pines, United States
+Pensacola, USA -> Pensacola, United States
+Saint Augustine, USA -> None, None
+Sarasota, USA -> Sarasota, United States
+South Miami, USA -> South Miami, United States
+St. Petersburg, USA -> St. Petersburg, United States
+Sunrise, USA -> Sunrise, United States
+Tallahassee, USA -> Tallahassee, United States
+Tallahassee, USA -> Tallahassee, United States
+Tampa, USA -> Tampa, United States
+West Melbourne, USA -> West Melbourne, United States
+West Palm Beach, USA -> West Palm Beach, United States
+Alpharetta, USA -> Alpharetta, United States
+Atlanta, USA -> Atlanta, United States
+Atlanta, USA -> Atlanta, United States
+Augusta, USA -> Augusta, United States
+Augusta, USA -> Augusta, Italy
+Augusta, USA -> Augusta, United States
+Augusta, USA -> Augusta, United States
+Buford, USA -> Buford, United States
+Columbus, USA -> Columbus, United States
+Columbus, USA -> Columbus, United States
+Columbus, USA -> Columbus, United States
+Columbus, USA -> Columbus, United States
+Columbus, USA -> Columbus, United States
+Columbus, USA -> Columbus, United States
+Columbus, USA -> Columbus, United States
+Columbus, USA -> Columbus, United States
+Columbus, USA -> Columbus, United States
+Columbus, USA -> Columbus, United States
+Cumming, USA -> None, None
+Douglasville, USA -> Douglasville, United States
+Kennesaw, USA -> Kennesaw, United States
+Lithonia, USA -> None, None
+Macon, USA -> Macon, United States
+Morrow, USA -> None, None
+Pooler, USA -> Pooler, United States
+Honolulu, USA -> Honolulu, United States
+Laie, USA -> None, None
+Council Bluffs, USA -> Council Bluffs, United States
+Davenport, USA -> Davenport, United States
+Davenport, USA -> Davenport, United States
+Davenport, USA -> Davenport, United States
+Davenport, USA -> Davenport, United States
+Des Moines, USA -> Des Moines, United States
+Des Moines, USA -> Des Moines, United States
+Waukee, USA -> Waukee, United States
+Boise, USA -> Boise, United States
+Bloomington, USA -> Bloomington, United States
+Bloomington, USA -> Bloomington, United States
+Bloomington, USA -> Bloomington, United States
+Bloomington, USA -> Bloomington, United States
+Chicago, USA -> Chicago, United States
+Chicago, USA -> Chicago, United States
+Chicago, USA -> Chicago, United States
+Edwardsville, USA -> Edwardsville, United States
+Hodgkins, USA -> None, None
+Lincolnshire, USA -> None, None
+Lombard, USA -> Lombard, United States
+Naperville, USA -> Naperville, United States
+New Lenox, USA -> New Lenox, United States
+Niles, USA -> Niles, United States
+Niles, USA -> Niles, United States
+Niles, USA -> Niles, United States
+Oak Brook, USA -> None, None
+Peoria, USA -> Peoria, United States
+Peoria, USA -> Peoria, United States
+Peoria, USA -> Peoria, United States
+Peoria, USA -> Peoria, United States
+Rockford, USA -> Rockford, United States
+Schaumburg, USA -> Schaumburg, United States
+Skokie, USA -> Skokie, United States
+South Barrington, USA -> None, None
+Springfield, USA -> Springfield, United States
+Springfield, USA -> Springfield, United States
+Springfield, USA -> Springfield, United States
+Springfield, USA -> Springfield, United States
+Springfield, USA -> Springfield, United States
+Springfield, USA -> Springfield, United States
+Springfield, USA -> Springfield, United States
+Springfield, USA -> Springfield, United States
+Springfield, USA -> Springfield, United States
+Springfield, USA -> Springfield, United States
+Springfield, USA -> Springfield, Canada
+Springfield, USA -> Springfield, United States
+Woodridge, USA -> Woodridge, United States
+Evansville, USA -> Evansville, United States
+Fort Wayne, USA -> Fort Wayne, United States
+Indianapolis, USA -> Indianapolis, United States
+Indianapolis, USA -> Indianapolis, United States
+Indianapolis, USA -> Indianapolis, United States
+Indianapolis, USA -> Indianapolis, United States
+Lafayette, USA -> Lafayette, United States
+Lafayette, USA -> Lafayette, United States
+Lafayette, USA -> Lafayette, United States
+Lafayette, USA -> Lafayette, United States
+Muncie, USA -> Muncie, United States
+Schererville, USA -> Schererville, United States
+Hutchinson, USA -> Hutchinson, United States
+Hutchinson, USA -> Hutchinson, United States
+Kansas City, USA -> Kansas City, United States
+Kansas City, USA -> Kansas City, United States
+Leawood, USA -> Leawood, United States
+Manhattan, USA -> Manhattan, United States
+Manhattan, USA -> Manhattan, United States
+Manhattan, USA -> Manhattan, United States
+Olathe, USA -> Olathe, United States
+Wichita, USA -> Wichita, United States
+Wichita, USA -> Wichita, United States
+Lexington, USA -> Lexington, United States
+Lexington, USA -> Lexington, United States
+Lexington, USA -> Lexington, United States
+Lexington, USA -> Lexington, United States
+Lexington, USA -> Lexington, United States
+Louisville, USA -> Louisville, United States
+Louisville, USA -> Louisville, United States
+Louisville, USA -> Louisville, United States
+Louisville, USA -> Louisville, United States
+Louisville, USA -> Louisville, United States
+Louisville, USA -> Louisville, United States
+Newport, USA -> Newport, United Kingdom
+Newport, USA -> Newport, United States
+Newport, USA -> Newport, United Kingdom
+Newport, USA -> Newport, United States
+Newport, USA -> Newport, United Kingdom
+Newport, USA -> Newport, United States
+Baton Rouge, USA -> Baton Rouge, United States
+Baton Rouge, USA -> Baton Rouge, United States
+Baton Rouge, USA -> Baton Rouge, United States
+Bossier City, USA -> Bossier City, United States
+Harahan, USA -> Harahan, United States
+Harvey, USA -> Harvey, United States
+Harvey, USA -> Harvey, United States
+Kenner, USA -> Kenner, United States
+Metairie, USA -> Metairie, United States
+Shreveport, USA -> Shreveport, United States
+Slidell, USA -> Slidell, United States
+Boston, USA -> Boston, United States
+Boston, USA -> Boston, United Kingdom
+Boston, USA -> Boston, Philippines
+Boston, USA -> Boston, United States
+Boston, USA -> Boston, United Kingdom
+Boston, USA -> Boston, Philippines
+Boston, USA -> Boston, United States
+Boston, USA -> Boston, United Kingdom
+Boston, USA -> Boston, Philippines
+Danvers, USA -> Danvers, United States
+Dorchester, USA -> Dorchester, United Kingdom
+Methuen, USA -> None, None
+Natick, USA -> Natick, United States
+Randolph, USA -> Randolph, United States
+Randolph, USA -> Randolph, United States
+Reading, USA -> Reading, United Kingdom
+Reading, USA -> Reading, United States
+Reading, USA -> Reading, United States
+Reading, USA -> Reading, United States
+Somerville, USA -> Somerville, United States
+Somerville, USA -> Somerville, United States
+Somerville, USA -> Somerville, Australia
+Baltimore, USA -> Baltimore, United States
+Baltimore, USA -> Baltimore, United States
+Columbia, USA -> Columbia, United States
+Columbia, USA -> Columbia, United States
+Columbia, USA -> Columbia, United States
+Columbia, USA -> Columbia, United States
+Columbia, USA -> Columbia, United States
+Columbia, USA -> Columbia, United States
+Frederick, USA -> Frederick, United States
+Frederick, USA -> Frederick, United States
+Gaithersburg, USA -> Gaithersburg, United States
+Gambrills, USA -> None, None
+Largo, USA -> Largo, United States
+Largo, USA -> Largo, United States
+Owings Mills, USA -> Owings Mills, United States
+Silver Spring, USA -> Silver Spring, United States
+Silver Spring, USA -> Silver Spring, United States
+Auburn Hills, USA -> Auburn Hills, United States
+Dearborn, USA -> Dearborn, United States
+Dearborn, USA -> Dearborn, United States
+Detroit, USA -> Detroit, United States
+Grand Blanc, USA -> None, None
+Grand Rapids, USA -> Grand Rapids, United States
+Grand Rapids, USA -> Grand Rapids, United States
+Lansing, USA -> Lansing, United States
+Lansing, USA -> Lansing, United States
+Lansing, USA -> Lansing, United States
+Lansing, USA -> Lansing, United States
+Livonia, USA -> Livonia, United States
+Portage, USA -> Portage, United States
+Portage, USA -> Portage, United States
+Portage, USA -> Portage, United States
+Sterling Heights, USA -> Sterling Heights, United States
+Traverse City, USA -> Traverse City, United States
+Ypsilanti, USA -> Ypsilanti, United States
+Eden Prairie, USA -> Eden Prairie, United States
+Edina, USA -> Edina, United States
+Hibbing, USA -> Hibbing, United States
+Maple Grove, USA -> Maple Grove, United States
+Rochester, USA -> Rochester, United States
+Rochester, USA -> Rochester, United States
+Rochester, USA -> Rochester, United Kingdom
+Rochester, USA -> Rochester, United States
+Rochester, USA -> Rochester, United States
+Roseville, USA -> Roseville, United States
+Roseville, USA -> Roseville, United States
+Roseville, USA -> Roseville, United States
+Saint Paul, USA -> None, None
+Branson, USA -> Branson, United States
+Chesterfield, USA -> Chesterfield, United States
+Chesterfield, USA -> Chesterfield, United Kingdom
+Chesterfield, USA -> Chesterfield, United States
+Independence, USA -> Independence, United States
+Independence, USA -> Independence, United States
+Independence, USA -> Independence, United States
+Kansas City, USA -> Kansas City, United States
+Kansas City, USA -> Kansas City, United States
+Kansas City, USA -> Kansas City, United States
+Kansas City, USA -> Kansas City, United States
+Saint Louis, USA -> None, None
+Sappington, USA -> None, None
+Springfield, USA -> Springfield, United States
+Springfield, USA -> Springfield, United States
+Springfield, USA -> Springfield, United States
+Springfield, USA -> Springfield, United States
+Springfield, USA -> Springfield, United States
+Springfield, USA -> Springfield, United States
+Springfield, USA -> Springfield, United States
+Springfield, USA -> Springfield, United States
+Springfield, USA -> Springfield, United States
+Springfield, USA -> Springfield, United States
+Springfield, USA -> Springfield, Canada
+Springfield, USA -> Springfield, United States
+Jackson, USA -> Jackson, United States
+Jackson, USA -> Jackson, United States
+Jackson, USA -> Jackson, United States
+Jackson, USA -> Jackson, United States
+Jackson, USA -> Jackson, United States
+Jackson, USA -> Jackson, United States
+Jackson, USA -> Jackson, United States
+Jackson, USA -> Jackson, United States
+Madison, USA -> Madison, United States
+Madison, USA -> Madison, United States
+Madison, USA -> Madison, United States
+Madison, USA -> Madison, United States
+Madison, USA -> Madison, United States
+Billings, USA -> Billings, United States
+Missoula, USA -> Missoula, United States
+West Yellowstone, USA -> None, None
+Cary, USA -> Cary, United States
+Cary, USA -> Cary, United States
+Charlotte, USA -> Charlotte, United States
+Charlotte, USA -> Charlotte, United States
+Charlotte, USA -> Charlotte, United States
+Charlotte, USA -> Charlotte, United States
+Charlotte, USA -> Charlotte, United States
+Charlotte, USA -> Charlotte, United States
+Concord, USA -> Concord, United States
+Concord, USA -> Concord, United States
+Concord, USA -> Concord, United States
+Concord, USA -> Concord, United States
+Concord, USA -> Concord, United States
+Concord, USA -> Concord, United States
+Durham, USA -> Durham, United States
+Durham, USA -> Durham, United Kingdom
+Durham, USA -> Durham, United States
+Fayetteville, USA -> Fayetteville, United States
+Fayetteville, USA -> Fayetteville, United States
+Fayetteville, USA -> Fayetteville, United States
+High Point, USA -> High Point, United States
+Raleigh, USA -> Raleigh, United States
+Wilmington, USA -> Wilmington, United States
+Wilmington, USA -> Wilmington, United States
+Wilmington, USA -> Wilmington, United States
+Wilmington, USA -> Wilmington, United States
+Winston-Salem, USA -> Winston-Salem, United States
+Hastings, USA -> Hastings, United Kingdom
+Hastings, USA -> Hastings, United States
+Hastings, USA -> Hastings, United States
+Hastings, USA -> Hastings, United States
+Omaha, USA -> Omaha, United States
+Omaha, USA -> Omaha, United States
+Atlantic City, USA -> Atlantic City, United States
+Cherry Hill, USA -> Cherry Hill, United States
+Cherry Hill, USA -> Cherry Hill, United States
+Clifton, USA -> Clifton, United States
+Clifton, USA -> Clifton, United Kingdom
+Clifton, USA -> Clifton, United States
+Eatontown, USA -> Eatontown, United States
+Elizabeth, USA -> Elizabeth, United States
+Jersey City, USA -> Jersey City, United States
+Linden, USA -> Linden, United States
+Linden, USA -> Linden, Guyana
+New Brunswick, USA -> New Brunswick, United States
+Northfield, USA -> Northfield, United States
+Northfield, USA -> Northfield, United Kingdom
+Paramus, USA -> Paramus, United States
+Rockaway, USA -> Rockaway, United States
+Alamogordo, USA -> Alamogordo, United States
+Albuquerque, USA -> Albuquerque, United States
+Albuquerque, USA -> Albuquerque, United States
+Albuquerque, USA -> Albuquerque, United States
+Henderson, USA -> Henderson, United States
+Henderson, USA -> Henderson, United States
+Henderson, USA -> Henderson, United States
+Henderson, USA -> Henderson, United States
+Henderson, USA -> Henderson, Argentina
+Las Vegas, USA -> Las Vegas, United States
+Las Vegas, USA -> Las Vegas, United States
+Las Vegas, USA -> Las Vegas, United States
+Las Vegas, USA -> Las Vegas, United States
+Las Vegas, USA -> Las Vegas, United States
+Las Vegas, USA -> Las Vegas, United States
+North Las Vegas, USA -> North Las Vegas, United States
+Sparks, USA -> Sparks, United States
+Albany, USA -> Albany, United States
+Albany, USA -> Albany, United States
+Albany, USA -> Albany, United States
+Albany, USA -> Albany, Australia
+Albany, USA -> Albany, United States
+Brooklyn, USA -> Brooklyn, United States
+Brooklyn, USA -> Brooklyn, United States
+Deer Park, USA -> Deer Park, United States
+Deer Park, USA -> Deer Park, United States
+Farmingdale, USA -> None, None
+Fresh Meadows, USA -> None, None
+Garden City, USA -> Garden City, United States
+Garden City, USA -> Garden City, United States
+Garden City, USA -> Garden City, United States
+Garden City, USA -> Garden City, United States
+Garden City, USA -> Garden City, United States
+Garden City, USA -> Garden City, United States
+New Rochelle, USA -> New Rochelle, United States
+New York, USA -> New York, United States
+New York, USA -> New York, United States
+New York, USA -> New York, United States
+New York, USA -> New York, United States
+New York, USA -> New York, United States
+Niagara Falls, USA -> Niagara Falls, Canada
+Niagara Falls, USA -> Niagara Falls, United States
+Port Chester, USA -> Port Chester, United States
+Rochester, USA -> Rochester, United States
+Rochester, USA -> Rochester, United States
+Rochester, USA -> Rochester, United Kingdom
+Rochester, USA -> Rochester, United States
+Rochester, USA -> Rochester, United States
+Rochester, USA -> Rochester, United States
+Rochester, USA -> Rochester, United States
+Rochester, USA -> Rochester, United Kingdom
+Rochester, USA -> Rochester, United States
+Rochester, USA -> Rochester, United States
+Staten Island, USA -> Staten Island, United States
+Stony Brook, USA -> Stony Brook, United States
+Syracuse, USA -> Syracuse, United States
+Syracuse, USA -> Syracuse, United States
+Syracuse, USA -> Syracuse, United States
+Syracuse, USA -> Syracuse, United States
+West Nyack, USA -> None, None
+Westbury, USA -> Westbury, United Kingdom
+Westbury, USA -> Westbury, United States
+White Plains, USA -> White Plains, United States
+Williamsville, USA -> None, None
+Beavercreek, USA -> Beavercreek, United States
+Cincinnati, USA -> Cincinnati, United States
+Cincinnati, USA -> Cincinnati, United States
+Cleveland, USA -> Cleveland, United States
+Cleveland, USA -> Cleveland, United States
+Cleveland, USA -> Cleveland, United States
+Columbus, USA -> Columbus, United States
+Columbus, USA -> Columbus, United States
+Columbus, USA -> Columbus, United States
+Columbus, USA -> Columbus, United States
+Columbus, USA -> Columbus, United States
+Columbus, USA -> Columbus, United States
+Columbus, USA -> Columbus, United States
+Columbus, USA -> Columbus, United States
+Columbus, USA -> Columbus, United States
+Columbus, USA -> Columbus, United States
+Columbus, USA -> Columbus, United States
+Columbus, USA -> Columbus, United States
+Columbus, USA -> Columbus, United States
+Columbus, USA -> Columbus, United States
+Columbus, USA -> Columbus, United States
+Dayton, USA -> Dayton, United States
+Dayton, USA -> Dayton, United States
+Dayton, USA -> Dayton, United States
+Grove City, USA -> Grove City, United States
+Toledo, USA -> Toledo, United States
+Toledo, USA -> Toledo, Philippines
+Toledo, USA -> Toledo, Brazil
+Toledo, USA -> Toledo, Spain
+Toledo, USA -> Toledo, Colombia
+West Chester, USA -> West Chester, United States
+Westlake, USA -> Westlake, United States
+Lawton, USA -> Lawton, United States
+Moore, USA -> Moore, United States
+Moore, USA -> Moore, United States
+Oklahoma City, USA -> Oklahoma City, United States
+Tulsa, USA -> Tulsa, United States
+Tulsa, USA -> Tulsa, United States
+Bend, USA -> Bend, United States
+Eugene, USA -> Eugene, United States
+McMinnville, USA -> McMinnville, United States
+McMinnville, USA -> McMinnville, United States
+Portland, USA -> Portland, United States
+Portland, USA -> Portland, United States
+Portland, USA -> Portland, United States
+Portland, USA -> Portland, United States
+Portland, USA -> Portland, Australia
+Portland, USA -> Portland, United States
+Portland, USA -> Portland, United States
+Portland, USA -> Portland, United States
+Portland, USA -> Portland, United States
+Portland, USA -> Portland, Australia
+Tigard, USA -> Tigard, United States
+Bensalem, USA -> Bensalem, United States
+Center Valley, USA -> None, None
+Dickson City, USA -> None, None
+Downingtown, USA -> None, None
+Erie, USA -> Erie, United States
+Erie, USA -> Erie, United States
+Harrisburg, USA -> Harrisburg, United States
+Harrisburg, USA -> Harrisburg, United States
+Harrisburg, USA -> Harrisburg, United States
+Homestead, USA -> Homestead, United States
+King of Prussia, USA -> King of Prussia, United States
+Lititz, USA -> Lititz, United States
+Philadelphia, USA -> Philadelphia, United States
+Philadelphia, USA -> Philadelphia, United States
+Pittsburgh, USA -> Pittsburgh, United States
+Reading, USA -> Reading, United Kingdom
+Reading, USA -> Reading, United States
+Reading, USA -> Reading, United States
+Reading, USA -> Reading, United States
+Warrington, USA -> Warrington, United Kingdom
+Warrington, USA -> Warrington, United States
+Warrington, USA -> Warrington, United States
+York, USA -> York, United States
+York, USA -> York, United Kingdom
+York, USA -> York, United States
+York, USA -> York, United States
+Carolina, USA -> Carolina, Puerto Rico
+San Juan, USA -> San Juan, Puerto Rico
+San Juan, USA -> San Juan, Argentina
+San Juan, USA -> San Juan, Dominican Republic
+San Juan, USA -> San Juan, Philippines
+San Juan, USA -> San Juan, Philippines
+San Juan, USA -> San Juan, Trinidad and Tobago
+San Juan, USA -> San Juan, Philippines
+San Juan, USA -> San Juan, United States
+San Juan, USA -> San Juan, Philippines
+San Juan, USA -> San Juan, Costa Rica
+San Juan, USA -> San Juan, Philippines
+San Juan, USA -> San Juan, Philippines
+San Juan, USA -> San Juan, Honduras
+San Juan, USA -> San Juan, Philippines
+Providence, USA -> Providence, United States
+Providence, USA -> Providence, United States
+Columbia, USA -> Columbia, United States
+Columbia, USA -> Columbia, United States
+Columbia, USA -> Columbia, United States
+Columbia, USA -> Columbia, United States
+Columbia, USA -> Columbia, United States
+Columbia, USA -> Columbia, United States
+Simpsonville, USA -> Simpsonville, United States
+Sioux Falls, USA -> Sioux Falls, United States
+Chattanooga, USA -> Chattanooga, United States
+Chattanooga, USA -> Chattanooga, United States
+Franklin, USA -> Franklin, United States
+Franklin, USA -> Franklin, United States
+Franklin, USA -> Franklin, United States
+Franklin, USA -> Franklin, United States
+Franklin, USA -> Franklin, United States
+Franklin, USA -> Franklin, United States
+Franklin, USA -> Franklin, United States
+Franklin, USA -> Franklin, United States
+Franklin, USA -> Franklin, United States
+Hendersonville, USA -> Hendersonville, United States
+Hendersonville, USA -> Hendersonville, United States
+Knoxville, USA -> Knoxville, United States
+Memphis, USA -> Memphis, United States
+Memphis, USA -> Memphis, United States
+Memphis, USA -> Memphis, United States
+Memphis, USA -> Memphis, United States
+Nashville, USA -> Nashville, United States
+Amarillo, USA -> Amarillo, United States
+Arlington, USA -> Arlington, United States
+Arlington, USA -> Arlington, United States
+Arlington, USA -> Arlington, United States
+Arlington, USA -> Arlington, United States
+Arlington, USA -> Arlington, United States
+Austin, USA -> Austin, United States
+Austin, USA -> Austin, United States
+Austin, USA -> Austin, United States
+Austin, USA -> Austin, United States
+Austin, USA -> Austin, United States
+Austin, USA -> Austin, United States
+Bryan, USA -> Bryan, United States
+Bryan, USA -> Bryan, United States
+Corpus Christi, USA -> Corpus Christi, United States
+Corpus Christi, USA -> Corpus Christi, United States
+Dallas, USA -> Dallas, United States
+Dallas, USA -> Dallas, United States
+Dallas, USA -> Dallas, United States
+Dallas, USA -> Dallas, United States
+Dallas, USA -> Dallas, United States
+Dallas, USA -> Dallas, United States
+Dallas, USA -> Dallas, United States
+Dallas, USA -> Dallas, United States
+Dallas, USA -> Dallas, United States
+Dallas, USA -> Dallas, United States
+Dallas, USA -> Dallas, United States
+Dallas, USA -> Dallas, United States
+Edinburg, USA -> Edinburg, United States
+El Paso, USA -> El Paso, United States
+El Paso, USA -> El Paso, Colombia
+Fort Worth, USA -> Fort Worth, United States
+Frisco, USA -> Frisco, United States
+Galveston, USA -> Galveston, United States
+Garland, USA -> Garland, United States
+Grapevine, USA -> Grapevine, United States
+Highland Village, USA -> Highland Village, United States
+Houston, USA -> Houston, United States
+Houston, USA -> Houston, United States
+Houston, USA -> Houston, United States
+Houston, USA -> Houston, United States
+Houston, USA -> Houston, United States
+Humble, USA -> Humble, United States
+Killeen, USA -> Killeen, United States
+Lubbock, USA -> Lubbock, United States
+Lubbock, USA -> Lubbock, United States
+Mesquite, USA -> Mesquite, United States
+Mesquite, USA -> Mesquite, United States
+Midland, USA -> Midland, United States
+Midland, USA -> Midland, United States
+Midland, USA -> Midland, Canada
+Midland, USA -> Midland, United States
+Odessa, USA -> Odessa, United States
+Richmond, USA -> Richmond, United States
+Richmond, USA -> Richmond, Canada
+Richmond, USA -> Richmond, United States
+Richmond, USA -> Richmond, United States
+Richmond, USA -> Richmond, United States
+Richmond, USA -> Richmond, United Kingdom
+Richmond, USA -> Richmond, New Zealand
+Richmond, USA -> Richmond, United States
+Richmond, USA -> Richmond, Australia
+Richmond, USA -> Richmond, Australia
+San Antonio, USA -> San Antonio, United States
+San Antonio, USA -> San Antonio, Chile
+San Antonio, USA -> San Antonio, Philippines
+San Antonio, USA -> San Antonio, Philippines
+San Antonio, USA -> San Antonio, Paraguay
+San Antonio, USA -> San Antonio, Philippines
+San Antonio, USA -> San Antonio, Philippines
+San Antonio, USA -> San Antonio, Colombia
+San Antonio, USA -> San Antonio, Colombia
+San Antonio, USA -> San Antonio, Costa Rica
+San Antonio, USA -> San Antonio, Philippines
+San Antonio, USA -> San Antonio, United States
+San Antonio, USA -> San Antonio, Chile
+San Antonio, USA -> San Antonio, Philippines
+San Antonio, USA -> San Antonio, Philippines
+San Antonio, USA -> San Antonio, Paraguay
+San Antonio, USA -> San Antonio, Philippines
+San Antonio, USA -> San Antonio, Philippines
+San Antonio, USA -> San Antonio, Colombia
+San Antonio, USA -> San Antonio, Colombia
+San Antonio, USA -> San Antonio, Costa Rica
+San Antonio, USA -> San Antonio, Philippines
+San Antonio, USA -> San Antonio, United States
+San Antonio, USA -> San Antonio, Chile
+San Antonio, USA -> San Antonio, Philippines
+San Antonio, USA -> San Antonio, Philippines
+San Antonio, USA -> San Antonio, Paraguay
+San Antonio, USA -> San Antonio, Philippines
+San Antonio, USA -> San Antonio, Philippines
+San Antonio, USA -> San Antonio, Colombia
+San Antonio, USA -> San Antonio, Colombia
+San Antonio, USA -> San Antonio, Costa Rica
+San Antonio, USA -> San Antonio, Philippines
+Shenandoah, USA -> Shenandoah, United States
+Stafford, USA -> Stafford, United Kingdom
+Stafford, USA -> Stafford, United States
+Stafford, USA -> Stafford, United States
+Sugar Land, USA -> Sugar Land, United States
+Temple, USA -> Temple, United States
+Tomball, USA -> Tomball, United States
+Tyler, USA -> Tyler, United States
+Waco, USA -> Waco, United States
+Centerville, USA -> Centerville, United States
+Centerville, USA -> Centerville, United States
+Lehi, USA -> Lehi, United States
+Salt Lake City, USA -> Salt Lake City, United States
+Salt Lake City, USA -> Salt Lake City, India
+Sandy, USA -> Sandy, United States
+Sandy, USA -> Sandy, United States
+Sandy, USA -> Sandy, United Kingdom
+Sandy, USA -> Sandy, United States
+South Jordan, USA -> South Jordan, United States
+Vineyard, USA -> Vineyard, United States
+Vineyard, USA -> Vineyard, United States
+West Valley City, USA -> West Valley City, United States
+Alexandria, USA -> Alexandria, Egypt
+Alexandria, USA -> Alexandria, United States
+Alexandria, USA -> Alexandria, United States
+Alexandria, USA -> Alexandria, Romania
+Alexandria, USA -> Alexandria, United States
+Alexandria, USA -> Alexandria, Brazil
+Alexandria, USA -> Alexandria, United States
+Alexandria, USA -> Alexandria, South Africa
+Ashburn, USA -> Ashburn, United States
+Chantilly, USA -> Chantilly, United States
+Chantilly, USA -> Chantilly, France
+Charlottesville, USA -> Charlottesville, United States
+Fredericksburg, USA -> Fredericksburg, United States
+Fredericksburg, USA -> Fredericksburg, United States
+Hampton, USA -> Hampton, United States
+Hampton, USA -> Hampton, United Kingdom
+Hampton, USA -> Hampton, United States
+Hampton, USA -> Hampton, United States
+Hampton, USA -> Hampton, United States
+Hampton, USA -> Hampton, United Kingdom
+Hampton, USA -> Hampton, United States
+Hampton, USA -> Hampton, United States
+Manassas, USA -> Manassas, United States
+McLean, USA -> McLean, United States
+Midlothian, USA -> Midlothian, United States
+Midlothian, USA -> Midlothian, United States
+Midlothian, USA -> Midlothian, United States
+Richmond, USA -> Richmond, United States
+Richmond, USA -> Richmond, Canada
+Richmond, USA -> Richmond, United States
+Richmond, USA -> Richmond, United States
+Richmond, USA -> Richmond, United States
+Richmond, USA -> Richmond, United Kingdom
+Richmond, USA -> Richmond, New Zealand
+Richmond, USA -> Richmond, United States
+Richmond, USA -> Richmond, Australia
+Richmond, USA -> Richmond, Australia
+Richmond, USA -> Richmond, United States
+Richmond, USA -> Richmond, Canada
+Richmond, USA -> Richmond, United States
+Richmond, USA -> Richmond, United States
+Richmond, USA -> Richmond, United States
+Richmond, USA -> Richmond, United Kingdom
+Richmond, USA -> Richmond, New Zealand
+Richmond, USA -> Richmond, United States
+Richmond, USA -> Richmond, Australia
+Richmond, USA -> Richmond, Australia
+Triangle, USA -> Triangle, United States
+Virginia Beach, USA -> Virginia Beach, United States
+Virginia Beach, USA -> Virginia Beach, United States
+Woodbridge, USA -> Woodbridge, United States
+Woodbridge, USA -> Woodbridge, United States
+Bellevue, USA -> Bellevue, United States
+Bellevue, USA -> Bellevue, United States
+Bellevue, USA -> Bellevue, France
+Bellevue, USA -> Bellevue, United States
+Bellingham, USA -> Bellingham, United States
+Bellingham, USA -> Bellingham, United States
+Gig Harbor, USA -> Gig Harbor, United States
+Issaquah, USA -> Issaquah, United States
+Kent, USA -> Kent, United States
+Kent, USA -> Kent, United States
+Kent, USA -> Kent, United States
+Lacey, USA -> Lacey, United States
+Lacey, USA -> Lacey, United States
+Lynnwood, USA -> Lynnwood, United States
+Seattle, USA -> Seattle, United States
+Seattle, USA -> Seattle, United States
+Seattle, USA -> Seattle, United States
+Spokane, USA -> Spokane, United States
+Tukwila, USA -> Tukwila, United States
+Vancouver, USA -> Vancouver, Canada
+Vancouver, USA -> Vancouver, United States
+Fitchburg, USA -> Fitchburg, United States
+Fitchburg, USA -> Fitchburg, United States
+Milwaukee, USA -> Milwaukee, United States
+Wauwatosa, USA -> Wauwatosa, United States
+Charleston, USA -> Charleston, United States
+Charleston, USA -> Charleston, United States
+Charleston, USA -> Charleston, United States
+Ho Chi Minh, VIETNAM -> None, None
+done
