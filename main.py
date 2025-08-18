@@ -1,28 +1,32 @@
-# main.py
 import os, json, time, math
 from pathlib import Path
-
 import numpy as np
 import pandas as pd
 import requests
 from geopy.geocoders import Nominatim
 from sklearn.neighbors import BallTree
+from thefuzz import fuzz  # for fuzzy venue-name matching
+import joblib
+from sklearn.model_selection import GroupKFold
+from sklearn.linear_model import LogisticRegression
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import StandardScaler
+from sklearn.metrics import roc_auc_score, average_precision_score
 
-# =========================
-# Load data
-# =========================
+
+
+# Load IMAX theaters and world cities data
 imax_theaters_df = pd.read_csv('list_of_IMAX.csv')
 worldcities_df   = pd.read_csv('worldcities.csv')
 
-# Normalize common column name variants in worldcities
+# fix column names for consistency
 if 'pop' in worldcities_df.columns and 'population' not in worldcities_df.columns:
     worldcities_df = worldcities_df.rename(columns={'pop': 'population'})
 if 'lon' in worldcities_df.columns and 'lng' not in worldcities_df.columns:
     worldcities_df = worldcities_df.rename(columns={'lon': 'lng'})
 
-# =========================
-# Fast (city,country) -> (lat, lon, population) index
-# =========================
+#Creates a fast lookup index for world cities population and lat/lon coordinates
 def build_worldcities_index(df: pd.DataFrame):
     df = df.copy()
     pop_col = 'population' if 'population' in df.columns else 'pop'
@@ -40,15 +44,14 @@ def build_worldcities_index(df: pd.DataFrame):
     }
     return index
 
+# builds index for every world city in worldcities.csv to make data training efficient
 WORLD_INDEX = build_worldcities_index(worldcities_df)
 
 def lookup_city_geo_pop_fast(city, country, world_index=WORLD_INDEX):
     key = (str(city).lower().strip(), str(country).lower().strip())
     return world_index.get(key, (None, None, np.nan))
 
-# =========================
-# Overpass (OSM) — with simple JSON cache
-# =========================
+# caches all OpenStreetMap queries to avoid hitting the API too often
 OSM_CACHE_PATH = "osm_cache.json"
 _osm_cache = {}
 if os.path.exists(OSM_CACHE_PATH):
@@ -65,6 +68,7 @@ def _save_osm_cache():
     except Exception:
         pass
 
+# Function to get cinema data from OpenStreetMap using Overpass API
 def get_cinema_data_osm(lat, lon, radius_km=20):
     """
     Query OpenStreetMap Overpass API for cinemas near a given lat/lon.
@@ -98,13 +102,16 @@ def get_cinema_data_osm(lat, lon, radius_km=20):
                 "type": elem.get("type"),
                 "name": tags.get("name"),
                 "brand": tags.get("brand"),
+                "operator": tags.get("operator"),
                 "city": tags.get("addr:city"),
                 "lat": lat_result,
-                "lon": lon_result
+                "lon": lon_result,
+                "tags": tags
             })
         return cinemas
     except Exception:
         return []
+
 
 def get_cinema_data_osm_cached(lat, lon, radius_km=20, sleep_s=1.05):
     key = f"{round(float(lat),4)}|{round(float(lon),4)}|{int(radius_km)}"
@@ -116,9 +123,7 @@ def get_cinema_data_osm_cached(lat, lon, radius_km=20, sleep_s=1.05):
     time.sleep(sleep_s)  # respect Overpass rate limits
     return data
 
-# =========================
-# Geocoder (for bbox precompute)
-# =========================
+# Geocoding setup
 geolocator = Nominatim(user_agent="imax_site_selector")
 
 # =========================
@@ -367,12 +372,7 @@ def top_locations(scope, region_name="", top_n=5, radius_km=20, use_osm=None, ma
 # =========================
 # ML ranker (scikit-learn) — learns a propensity from data
 # =========================
-from sklearn.model_selection import GroupKFold
-from sklearn.linear_model import LogisticRegression
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.pipeline import Pipeline
-from sklearn.preprocessing import StandardScaler
-from sklearn.metrics import roc_auc_score, average_precision_score
+
 
 FEATURES = ["log_population", "cinema_count_20km", "log_cinema_count", "cinemas_per_100k"]
 
@@ -477,11 +477,11 @@ def score_candidates(model, candidates_df, radius_km=20, tree=None, use_osm=Fals
         X = pd.DataFrame([f])[FEATURES].fillna(0.0).to_numpy()  # shape (1, n_features)
 
         # Predict probability; take the single scalar without casting an array
-        p = model.predict_proba(X)[0, 1]          # <- no float(...), no deprecation warning
+        p = model.predict_proba(X)[0, 1]
 
         rows.append({
             "City": city, "Country": country, "lat": lat, "lon": lon,
-            "population": pop, "ml_prob": float(p)  # optional cast here is fine; p is a Python float already
+            "population": pop, "ml_prob": float(p)
         })
     return pd.DataFrame(rows).sort_values("ml_prob", ascending=False)
 
@@ -491,51 +491,479 @@ def filter_near_imax(df, min_km=20):
     df["nearest_imax_km"] = df.apply(lambda r: nearest_imax_km(r["lat"], r["lon"]), axis=1)
     return df[df["nearest_imax_km"] >= min_km]
 
+
+# caching helplers to improve efficiency with the ML training and scoring
+
+CACHE_DIR = Path("cache")
+CACHE_DIR.mkdir(exist_ok=True)
+
+def _slug(s: str) -> str:
+    s = (s or "").strip().lower().replace(" ", "_")
+    return "".join(ch if ch.isalnum() or ch in ("_", "-") else "_" for ch in s)
+
+def _ml_config_key(radius_km: int, algo: str, sample_neg_per_country: int, imax_len: int) -> str:
+    return f"r{int(radius_km)}_{algo}_neg{int(sample_neg_per_country)}_imax{int(imax_len)}"
+
+def _train_cache_path(radius_km: int, algo: str, sample_neg_per_country: int, imax_len: int) -> Path:
+    return CACHE_DIR / f"train_{_ml_config_key(radius_km, algo, sample_neg_per_country, imax_len)}.pkl"
+
+def _model_cache_path(radius_km: int, algo: str, sample_neg_per_country: int, imax_len: int) -> Path:
+    return CACHE_DIR / f"model_{_ml_config_key(radius_km, algo, sample_neg_per_country, imax_len)}.joblib"
+
+def _cand_cache_path(scope: str, region_name: str, radius_km: int, algo: str, sample_neg_per_country: int, imax_len: int) -> Path:
+    slug = _slug(region_name) if region_name else "global"
+    return CACHE_DIR / f"cand_{scope.lower()}_{slug}_{_ml_config_key(radius_km, algo, sample_neg_per_country, imax_len)}.pkl"
+
+
+# =========================
+# Cached builders
+# =========================
+def build_training_table_cached(worldcities_df, imax_df,
+                                sample_neg_per_country=150, radius_km=20, tree=None, use_osm=False,
+                                algo="rf", rebuild=False):
+    """
+    Returns training DataFrame, using cache unless rebuild=True.
+    Cache key depends on: radius_km, algo, sample_neg_per_country, len(IMAX list).
+    """
+    imax_len = int(imax_df.drop_duplicates(subset=["City", "Country"]).shape[0])
+    train_path = _train_cache_path(radius_km, algo, sample_neg_per_country, imax_len)
+
+    if (not rebuild) and train_path.exists():
+        try:
+            df = pd.read_pickle(train_path)
+            # quick sanity check
+            if {"label", "city", "country"}.issubset(df.columns):
+                return df
+        except Exception:
+            pass  # fall through to rebuild
+
+    df = build_training_table(worldcities_df, imax_df,
+                              sample_neg_per_country=sample_neg_per_country,
+                              radius_km=radius_km, tree=tree, use_osm=use_osm)
+    try:
+        df.to_pickle(train_path)
+    except Exception:
+        pass
+    return df
+
+
+def train_or_load_model(train_df: pd.DataFrame, algo="rf",
+                        radius_km=20, sample_neg_per_country=150, imax_len=None,
+                        retrain=False):
+    """
+    Returns fitted model, using cache unless retrain=True.
+    """
+    if imax_len is None:
+        # derive from positives in train_df
+        imax_len = int((train_df["label"] == 1).sum())
+
+    model_path = _model_cache_path(radius_km, algo, sample_neg_per_country, imax_len)
+
+    if (not retrain) and model_path.exists():
+        try:
+            return joblib.load(model_path)
+        except Exception:
+            pass  # fall through to retrain
+
+    model = train_model(train_df, algo=algo)
+    try:
+        joblib.dump(model, model_path)
+    except Exception:
+        pass
+    return model
+
+
+def build_candidate_features_cached(candidates_df: pd.DataFrame,
+                                    radius_km=20, tree=None, use_osm=False,
+                                    scope="global", region_name="",
+                                    algo="rf", sample_neg_per_country=150, imax_len=0,
+                                    rebuild=False):
+    """
+    Precompute feature rows for candidate cities and cache them.
+    """
+    cand_path = _cand_cache_path(scope, region_name, radius_km, algo, sample_neg_per_country, imax_len)
+
+    if (not rebuild) and cand_path.exists():
+        try:
+            return pd.read_pickle(cand_path)
+        except Exception:
+            pass  # rebuild
+
+    rows = []
+    for _, row in candidates_df.iterrows():
+        city, country = row["city"], row["country"]
+        lat, lon = float(row["lat"]), float(row["lon"])
+        pop = row.get("population", np.nan)
+
+        f = feature_row(lat, lon, pop, radius_km=radius_km, tree=tree, use_osm=use_osm)
+        f.update({"City": city, "Country": country, "lat": lat, "lon": lon, "population": pop})
+        rows.append(f)
+
+    feats = pd.DataFrame(rows)
+    try:
+        feats.to_pickle(cand_path)
+    except Exception:
+        pass
+    return feats
+
 def top_locations_ml(scope, region_name="", top_n=5, radius_km=20,
                      use_osm_for_train=False, use_osm_for_score=False, algo="rf",
-                     sample_neg_per_country=150):
+                     sample_neg_per_country=150,
+                     rebuild_train=False, retrain_model=False, rebuild_features=False):
     """
-    ML version (scikit-learn).
-      - Builds a labeled dataset (IMAX vs non-IMAX), trains a model, scores candidates.
-      - Uses BallTree for fast cinema counts when available (non-global scopes).
+    ML version with caching.
+      - Caches training table, fitted model, and candidate features.
+      - First run is heavier; subsequent runs are fast (load + predict).
     """
+    scope_l = scope.lower()
     tree = None
-    if scope.lower() != "global":
+    if scope_l != "global":
         try:
             tree = ensure_region_precomputed(scope, region_name)
         except Exception as e:
             print(f"[warn] Precompute failed for {scope}:{region_name} ({e}). Proceeding without BallTree.")
 
-    train_df = build_training_table(worldcities_df, imax_theaters_df,
-                                    sample_neg_per_country=sample_neg_per_country,
-                                    radius_km=radius_km, tree=tree, use_osm=use_osm_for_train)
-    model = train_model(train_df, algo=algo)
+    # 1) Training table (cached)
+    train_df = build_training_table_cached(
+        worldcities_df, imax_theaters_df,
+        sample_neg_per_country=sample_neg_per_country,
+        radius_km=radius_km,
+        tree=tree, use_osm=use_osm_for_train,
+        algo=algo,
+        rebuild=rebuild_train
+    )
 
+    # 2) Model (cached)
+    imax_len = int(imax_theaters_df.drop_duplicates(subset=["City", "Country"]).shape[0])
+    model = train_or_load_model(
+        train_df, algo=algo,
+        radius_km=radius_km, sample_neg_per_country=sample_neg_per_country, imax_len=imax_len,
+        retrain=retrain_model
+    )
+
+    # 3) Candidate cities in scope
     candidates = filter_candidates_worldcities(worldcities_df, scope, region_name)
     if candidates.empty:
         print("No candidate cities for this scope/region.")
         return candidates
 
-    scored = score_candidates(model, candidates, radius_km=radius_km, tree=tree, use_osm=use_osm_for_score)
-    scored = filter_near_imax(scored, min_km=20)
+    # 4) Candidate features (cached)
+    feats = build_candidate_features_cached(
+        candidates,
+        radius_km=radius_km, tree=tree, use_osm=use_osm_for_score,
+        scope=scope, region_name=region_name,
+        algo=algo, sample_neg_per_country=sample_neg_per_country, imax_len=imax_len,
+        rebuild=rebuild_features
+    )
 
+    # 5) Predict ml_prob
+    X = feats[FEATURES].fillna(0.0).to_numpy()
+    ml_prob = model.predict_proba(X)[:, 1]
+    out = feats.copy()
+    out["ml_prob"] = ml_prob
+
+    # 6) Filter by nearest IMAX + remove exact IMAX cities
+    out = filter_near_imax(out.rename(columns={"City":"City", "Country":"Country", "lat":"lat", "lon":"lon"}), min_km=20)
     imax_keys = set(zip(imax_theaters_df["City"].str.lower().str.strip(),
                         imax_theaters_df["Country"].str.lower().str.strip()))
-    scored = scored[~scored.apply(
+    out = out[~out.apply(
         lambda r: (str(r["City"]).lower().strip(), str(r["Country"]).lower().strip()) in imax_keys, axis=1
     )]
 
-    return scored.head(top_n)
+    cols = ["City", "Country", "lat", "lon", "population", "ml_prob"]
+    return out.sort_values("ml_prob", ascending=False)[cols].head(top_n)
 
 
+# =========================
+# NEW: City-scope non-IMAX venue recommender
+# =========================
+
+def build_imax_index(imax_df: pd.DataFrame):
+    """
+    Build {(city_l, country_l): [(lat, lon, name), ...]} for fast in-city IMAX exclusion.
+    Uses WORLD_INDEX to geocode IMAX city to a centroid; if you have per-venue coords, swap in those instead.
+    """
+    idx = {}
+    for _, r in imax_df.iterrows():
+        city = str(r.get("City","")).strip()
+        country = str(r.get("Country","")).strip()
+        if not city or not country:
+            continue
+        lat, lon, _ = lookup_city_geo_pop_fast(city, country)
+        if lat is None or lon is None:
+            continue
+        key = (city.lower(), country.lower())
+        name = str(r.get("Theater Name", r.get("Cinema", ""))).strip()  # optional name column fallback
+        idx.setdefault(key, []).append((float(lat), float(lon), name))
+    return idx
+
+def slugify(s: str):
+    return "".join(c if c.isalnum() or c in ("_", "-") else "_" for c in s.strip().lower().replace(" ", "_"))
+
+def nominatim_osm_area_id(city: str, country: str):
+    """
+    Use Nominatim to resolve the OSM object (relation/way) for the city, then convert to Overpass area id.
+    area id formula: relation -> 3600000000 + rel_id; way -> 2400000000 + way_id
+    """
+    q = f"{city}, {country}"
+    loc = geolocator.geocode(q, exactly_one=True, addressdetails=True, timeout=20)
+    time.sleep(1.0)
+    if not loc or "osm_type" not in loc.raw or "osm_id" not in loc.raw:
+        raise ValueError(f"Could not resolve OSM object for '{q}'")
+    osm_type = loc.raw["osm_type"]
+    osm_id   = int(loc.raw["osm_id"])
+    if osm_type == "relation":
+        return 3600000000 + osm_id
+    elif osm_type == "way":
+        return 2400000000 + osm_id
+    else:
+        # Fallback: use bbox if it's a node; less precise but still useful
+        raise ValueError(f"City resolved to unsupported osm_type '{osm_type}' for '{q}'")
+
+def fetch_city_cinemas(city: str, country: str):
+    """
+    One-shot Overpass query to pull all cinemas inside the city administrative area.
+    Caches to data/cinemas_city_{city}_{country}.json and .npy
+    """
+    slug = f"{slugify(city)}_{slugify(country)}"
+    jpath = DATA_DIR / f"cinemas_city_{slug}.json"
+    nppath = DATA_DIR / f"cinemas_city_{slug}.npy"
+
+    if jpath.exists() and nppath.exists():
+        try:
+            with open(jpath, "r", encoding="utf-8") as f:
+                raw = json.load(f)
+            arr = np.load(nppath)
+            return raw, arr
+        except Exception:
+            pass
+
+    # Prefer polygon/area query
+    try:
+        area_id = nominatim_osm_area_id(city, country)
+        query = f"""
+        [out:json][timeout:120];
+        area({area_id})->.searchArea;
+        (
+          node["amenity"="cinema"](area.searchArea);
+          way["amenity"="cinema"](area.searchArea);
+          relation["amenity"="cinema"](area.searchArea);
+        );
+        out center tags;
+        """
+        r = requests.post("https://overpass-api.de/api/interpreter", data={"data": query}, timeout=180)
+        r.raise_for_status()
+        data = r.json()
+    except Exception:
+        # Fallback: tight bbox around city centroid
+        lat, lon, _ = lookup_city_geo_pop_fast(city, country)
+        if lat is None or lon is None:
+            raise
+        delta = 0.15  # ~15–20km box (tunable)
+        south, north = lat - delta, lat + delta
+        west,  east  = lon - delta, lon + delta
+        query = f"""
+        [out:json][timeout:120];
+        (
+          node["amenity"="cinema"]({south},{west},{north},{east});
+          way["amenity"="cinema"]({south},{west},{north},{east});
+          relation["amenity"="cinema"]({south},{west},{north},{east});
+        );
+        out center tags;
+        """
+        r = requests.post("https://overpass-api.de/api/interpreter", data={"data": query}, timeout=180)
+        r.raise_for_status()
+        data = r.json()
+
+    elements = data.get("elements", [])
+    cinemas = []
+    pts = []
+    for el in elements:
+        tags = el.get("tags", {}) or {}
+        lat = el.get("lat") or (el.get("center") or {}).get("lat")
+        lon = el.get("lon") or (el.get("center") or {}).get("lon")
+        if lat is None or lon is None:
+            continue
+        cinemas.append({
+            "type": el.get("type"),
+            "name": tags.get("name"),
+            "brand": tags.get("brand"),
+            "operator": tags.get("operator"),
+            "addr:city": tags.get("addr:city"),
+            "lat": float(lat),
+            "lon": float(lon),
+            "tags": tags
+        })
+        pts.append((float(lat), float(lon)))
+
+    # cache
+    try:
+        with open(jpath, "w", encoding="utf-8") as f:
+            json.dump({"elements": cinemas}, f)
+        np.save(nppath, np.array(pts, dtype=np.float64))
+    except Exception:
+        pass
+
+    return {"elements": cinemas}, np.array(pts, dtype=np.float64)
+
+def ensure_city_balltree(city: str, country: str):
+    """
+    Load (or build) a BallTree for all cinemas in a given city.
+    """
+    _, arr = fetch_city_cinemas(city, country)
+    if arr.size == 0:
+        return None
+    return BallTree(np.radians(arr), metric="haversine")
+
+def _normalize_name(s: str):
+    if not s:
+        return ""
+    return "".join(ch for ch in s.lower() if ch.isalnum() or ch.isspace()).strip()
+
+def exclude_imax_matches(osm_cinemas: list, imax_index: dict,
+                         city: str, country: str,
+                         fuzz_threshold: int = 92, prox_m: float = 700.0):
+    """
+    Remove OSM cinemas that appear to be the IMAX venue (by fuzzy name or geo proximity).
+    """
+    key = (city.lower().strip(), country.lower().strip())
+    imax_list = imax_index.get(key, [])
+    if not imax_list:
+        return osm_cinemas  # nothing to exclude
+
+    # Build BallTree over IMAX points in this city for fast proximity checks
+    imax_pts = np.array([(lat, lon) for (lat, lon, _) in imax_list], dtype=np.float64)
+    imax_tree = BallTree(np.radians(imax_pts), metric="haversine") if len(imax_pts) else None
+    earth_km = 6371.0088
+    prox_radians = (prox_m / 1000.0) / earth_km
+
+    survivors = []
+    for c in osm_cinemas:
+        cname = _normalize_name(c.get("name") or "") or _normalize_name(c.get("brand") or "") or _normalize_name(c.get("operator") or "")
+        lat, lon = float(c["lat"]), float(c["lon"])
+
+        # 1) name fuzzy match
+        is_imax_name = False
+        for _, _, iname in imax_list:
+            if not iname:
+                continue
+            score = fuzz.token_set_ratio(cname, _normalize_name(iname))
+            if score >= fuzz_threshold:
+                is_imax_name = True
+                break
+        if is_imax_name:
+            continue  # exclude
+
+        # 2) proximity match
+        if imax_tree is not None:
+            cnt = imax_tree.query_radius(np.radians([[lat, lon]]), r=prox_radians, count_only=True)[0]
+            if cnt > 0:
+                continue  # exclude
+
+        survivors.append(c)
+
+    return survivors
+
+def score_city_cinemas(cinemas: list, city_lat: float, city_lon: float,
+                       city_population: float,
+                       tree_city: BallTree,
+                       local_km: float = 3.0):
+    """
+    Light-weight, explainable scoring for venues within a single city.
+    Features:
+      - local_cinema_density: # other cinemas within local_km
+      - dist_to_center_km: distance to city centroid (closer slightly better)
+      - whitespace: distance to nearest IMAX (km)
+    """
+    rows = []
+    earth_km = 6371.0088
+    r = local_km / earth_km
+
+    # Array of ALL city cinema points in radians for density calc
+    pts = np.radians(np.array([(c["lat"], c["lon"]) for c in cinemas], dtype=np.float64))
+
+    for i, c in enumerate(cinemas):
+        lat, lon = float(c["lat"]), float(c["lon"])
+
+        # Local density excluding itself
+        q = np.radians([[lat, lon]])
+        idxs = tree_city.query_radius(q, r=r, return_distance=False)[0]
+        local_density = max(0, len(idxs) - 1)
+
+        # Distance to city center
+        dist_center = haversine_km(lat, lon, city_lat, city_lon)
+
+        # White-space: distance to nearest IMAX (uses global IMAX list)
+        whitespace_km = nearest_imax_km(lat, lon)
+
+        # Simple score (tunable): prefer some local ecosystem, closer to center, far from IMAX
+        score = (0.4 * np.log1p(local_density)) + (0.2 * (1.0 / (1.0 + dist_center))) + (0.4 * (whitespace_km / 50.0))
+
+        rows.append({
+            "name": c.get("name"),
+            "brand": c.get("brand"),
+            "operator": c.get("operator"),
+            "lat": lat, "lon": lon,
+            "local_cinemas_within_km": local_km,
+            "local_cinema_density": local_density,
+            "dist_to_center_km": dist_center,
+            "nearest_imax_km": whitespace_km,
+            "score": float(score)
+        })
+
+    df = pd.DataFrame(rows).sort_values("score", ascending=False)
+    return df
+
+def recommend_non_imax_cinemas(city: str, country: str, top_n: int = 5,
+                               fuzz_threshold: int = 92, prox_m: float = 700.0,
+                               local_km: float = 3.0):
+    """
+    City-scope entry point:
+      1) fetch all cinemas within city polygon (cached)
+      2) exclude IMAX venues by name/proximity
+      3) score remaining venues and return top N
+    """
+    # Resolve city centroid & population (for context/scoring)
+    city_lat, city_lon, city_pop = lookup_city_geo_pop_fast(city, country)
+    if city_lat is None or city_lon is None:
+        print(f"Could not resolve city centroid for {city}, {country}")
+        return pd.DataFrame()
+
+    # Pull raw cinemas for the city
+    raw, _arr = fetch_city_cinemas(city, country)
+    cinemas = raw.get("elements", [])
+    if not cinemas:
+        print(f"No cinemas found inside {city}, {country}")
+        return pd.DataFrame()
+
+    # Build IMAX index and exclude IMAX matches
+    imax_idx = build_imax_index(imax_theaters_df)
+    candidates = exclude_imax_matches(cinemas, imax_idx, city, country,
+                                      fuzz_threshold=fuzz_threshold, prox_m=prox_m)
+    if not candidates:
+        print("All cinemas appear to be IMAX or no non-IMAX candidates remain.")
+        return pd.DataFrame()
+
+    # Score within-city venues
+    tree_city = ensure_city_balltree(city, country)
+    if tree_city is None:
+        print("City cinema BallTree could not be built.")
+        return pd.DataFrame()
+
+    ranked = score_city_cinemas(candidates, city_lat, city_lon, city_pop, tree_city, local_km=local_km)
+    return ranked.head(top_n)
+
+# =========================
+# Quick examples (comment/uncomment as needed)
+# =========================
 if __name__ == "__main__":
     # Heuristic (fast dev path)
-    #print("Heuristic / Global:")
-    #print(top_locations("global", top_n=5, use_osm=False))   # fast, no network
+    # print("Heuristic / Global:")
+    # print(top_locations("global", top_n=5, use_osm=False))   # fast, no network
 
     # Country/State/City: first run does one Overpass bbox fetch; subsequent runs are instant (BallTree)
-    #print("Heuristic / Country=Japan:")
-    #print(top_locations("country", "Japan", top_n=5))
+    #print("Heuristic / Country=Germany:")
+    #rint(top_locations("country", "Germany", top_n=5))
 
     # print("Heuristic / State=California, United States:")
     # print(top_locations("state", "California, United States", top_n=5))
@@ -544,5 +972,9 @@ if __name__ == "__main__":
     # print(top_locations("city", "Toronto, Canada", top_n=5))
 
     # ML (train + score). Start with OSM disabled for speed; enable on small scopes when ready.
-    print("ML / Country=Japan (RF):")
-    print(top_locations_ml("country", "Canada", top_n=5, use_osm_for_train=False, use_osm_for_score=False, algo="rf"))
+    print("ML / Country=Canada (RF):")
+    print(top_locations_ml("country", "Canada", top_n=5))
+
+    # City-scope non-IMAX venues (uncomment to try)
+    #print("City venues / Non-IMAX candidates in Berlin, Germany:")
+    #print(recommend_non_imax_cinemas("Berlin", "Germany", top_n=5, fuzz_threshold=93, prox_m=700.0, local_km=3.0))
