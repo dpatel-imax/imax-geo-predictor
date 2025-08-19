@@ -18,7 +18,40 @@ from sklearn.metrics import roc_auc_score, average_precision_score
 
 # Load IMAX theaters and world cities data
 imax_theaters_df = pd.read_csv('list_of_IMAX.csv')
-worldcities_df   = pd.read_csv('worldcities.csv')
+worldcities_df = pd.read_csv('worldcities.csv')
+
+# Recognize US states so we can add the country hint for geocoding
+US_STATE_FULL_SET = {
+    "Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware",
+    "District of Columbia","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas",
+    "Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi",
+    "Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York",
+    "North Carolina","North Dakota","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island",
+    "South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington",
+    "West Virginia","Wisconsin","Wyoming"
+}
+
+def normalize_scope_inputs(scope: str, region_name: str):
+    """
+    Returns (region_filter_value, geocode_query_value)
+    - region_filter_value: string used to filter worldcities (admin_name match)
+    - geocode_query_value: string sent to Nominatim for bounding box
+    """
+    s = (scope or "").strip().lower()
+    rn_raw = (region_name or "").strip()
+    rn = rn_raw
+
+    # Accept US abbreviations like "CA" as well (if you already have resolve_us_state_input, call it here)
+    # rn = resolve_us_state_input(rn_raw)
+
+    if s == "state":
+        # If it looks like a US state, add ", United States" for geocoding
+        if rn in US_STATE_FULL_SET:
+            return rn, f"{rn}, United States"
+        # Otherwise leave as-is (e.g., "Maharashtra, India" callers can pass full string)
+        return rn, rn
+    else:
+        return rn, rn
 
 # fix column names for consistency
 if 'pop' in worldcities_df.columns and 'population' not in worldcities_df.columns:
@@ -965,15 +998,15 @@ if __name__ == "__main__":
     #print("Heuristic / Country=Germany:")
     #rint(top_locations("country", "Germany", top_n=5))
 
-    # print("Heuristic / State=California, United States:")
-    # print(top_locations("state", "California, United States", top_n=5))
+    print("Heuristic / State=California, United States:")
+    print(top_locations("state", "California, United States", top_n=5))
 
     # print("Heuristic / City=Toronto, Canada:")
     # print(top_locations("city", "Toronto, Canada", top_n=5))
 
     # ML (train + score). Start with OSM disabled for speed; enable on small scopes when ready.
-    print("ML / Country=Canada (RF):")
-    print(top_locations_ml("country", "Canada", top_n=5))
+    #print("ML / Country=Japan (RF):")
+    #print(top_locations_ml("country", "Japan", top_n=5))
 
     # City-scope non-IMAX venues (uncomment to try)
     #print("City venues / Non-IMAX candidates in Berlin, Germany:")
