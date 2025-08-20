@@ -5,7 +5,7 @@ import pandas as pd
 import requests
 from geopy.geocoders import Nominatim
 from sklearn.neighbors import BallTree
-from thefuzz import fuzz  # for fuzzy venue-name matching
+from thefuzz import fuzz
 import joblib
 from sklearn.model_selection import GroupKFold
 from sklearn.linear_model import LogisticRegression
@@ -20,7 +20,6 @@ from sklearn.metrics import roc_auc_score, average_precision_score
 imax_theaters_df = pd.read_csv('list_of_IMAX.csv')
 worldcities_df = pd.read_csv('worldcities.csv')
 
-# Recognize US states so we can add the country hint for geocoding
 US_STATE_FULL_SET = {
     "Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware",
     "District of Columbia","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas",
@@ -32,26 +31,24 @@ US_STATE_FULL_SET = {
 }
 
 def normalize_scope_inputs(scope: str, region_name: str):
-    """
-    Returns (region_filter_value, geocode_query_value)
-    - region_filter_value: string used to filter worldcities (admin_name match)
-    - geocode_query_value: string sent to Nominatim for bounding box
-    """
     s = (scope or "").strip().lower()
-    rn_raw = (region_name or "").strip()
-    rn = rn_raw
-
-    # Accept US abbreviations like "CA" as well (if you already have resolve_us_state_input, call it here)
-    # rn = resolve_us_state_input(rn_raw)
+    rn = (region_name or "").strip()
 
     if s == "state":
-        # If it looks like a US state, add ", United States" for geocoding
-        if rn in US_STATE_FULL_SET:
-            return rn, f"{rn}, United States"
-        # Otherwise leave as-is (e.g., "Maharashtra, India" callers can pass full string)
-        return rn, rn
-    else:
-        return rn, rn
+        
+        if "," in rn:
+            state_part = rn.split(",")[0].strip()
+        else:
+            state_part = rn
+        
+        if state_part in US_STATE_FULL_SET:
+            return state_part, f"{state_part}, United States"
+        
+        return state_part, rn
+
+    return rn, rn
+
+
 
 # fix column names for consistency
 if 'pop' in worldcities_df.columns and 'population' not in worldcities_df.columns:
@@ -330,9 +327,9 @@ def add_scoring(df: pd.DataFrame):
     df = df[(df["nearest_imax_km"].isna()) | (df["nearest_imax_km"] >= 20)]
     return df.sort_values("score", ascending=False)
 
-# =========================
-# Heuristic ranker (fast) — uses precompute when available
-# =========================
+# --------------------------------------------
+# PATCHED: Heuristic ranker
+# --------------------------------------------
 def top_locations(scope, region_name="", top_n=5, radius_km=20, use_osm=None, max_rows=None):
     """
     Heuristic version.
@@ -345,21 +342,27 @@ def top_locations(scope, region_name="", top_n=5, radius_km=20, use_osm=None, ma
     if max_rows is None and scope_l == "global":
         max_rows = 300
 
-    candidates = filter_candidates_worldcities(worldcities_df, scope, region_name)
+    # ✅ NEW: normalize once for filtering vs geocoding
+    region_filter, geocode_query = normalize_scope_inputs(scope, region_name)
+
+    # (1) Candidates from worldcities using the normalized FILTER value
+    candidates = filter_candidates_worldcities(worldcities_df, scope, region_filter)
     if candidates.empty:
         print("No candidate cities for this scope/region.")
         return candidates
     if max_rows:
         candidates = candidates.head(int(max_rows))
 
+    # (2) Precompute region cinemas using the normalized GEOCODE value
     tree = None
     if scope_l != "global":
         try:
-            tree = ensure_region_precomputed(scope, region_name)
+            tree = ensure_region_precomputed(scope, geocode_query)
         except Exception as e:
-            print(f"[warn] Precompute failed for {scope}:{region_name} ({e}). Falling back to per-city OSM).")
+            print(f"[warn] Precompute failed for {scope}:{geocode_query} ({e}). Falling back to per-city OSM).")
             tree = None
 
+    # (3) Features
     rows = []
     for _, row in candidates.iterrows():
         city, country = row["city"], row["country"]
@@ -391,7 +394,7 @@ def top_locations(scope, region_name="", top_n=5, radius_km=20, use_osm=None, ma
     ranked = add_scoring(base)
 
     # Remove exact IMAX cities (optional dedupe)
-    if {"City", "Country"}.issubset(imax_theaters_df.columns):
+    if {"City","Country"}.issubset(imax_theaters_df.columns):
         imax_keys = set(zip(
             imax_theaters_df["City"].astype(str).str.lower().str.strip(),
             imax_theaters_df["Country"].astype(str).str.lower().str.strip()
@@ -401,6 +404,7 @@ def top_locations(scope, region_name="", top_n=5, radius_km=20, use_osm=None, ma
         )]
 
     return ranked.head(top_n)
+
 
 # =========================
 # ML ranker (scikit-learn) — learns a propensity from data
@@ -639,6 +643,9 @@ def build_candidate_features_cached(candidates_df: pd.DataFrame,
         pass
     return feats
 
+# --------------------------------------------
+# PATCHED: ML ranker (with your caching flags/signature)
+# --------------------------------------------
 def top_locations_ml(scope, region_name="", top_n=5, radius_km=20,
                      use_osm_for_train=False, use_osm_for_score=False, algo="rf",
                      sample_neg_per_country=150,
@@ -649,12 +656,17 @@ def top_locations_ml(scope, region_name="", top_n=5, radius_km=20,
       - First run is heavier; subsequent runs are fast (load + predict).
     """
     scope_l = scope.lower()
+
+    # ✅ NEW: normalize once for filtering vs geocoding
+    region_filter, geocode_query = normalize_scope_inputs(scope, region_name)
+
+    # BallTree for the scope (uses geocode_query so “California” resolves reliably)
     tree = None
     if scope_l != "global":
         try:
-            tree = ensure_region_precomputed(scope, region_name)
+            tree = ensure_region_precomputed(scope, geocode_query)
         except Exception as e:
-            print(f"[warn] Precompute failed for {scope}:{region_name} ({e}). Proceeding without BallTree.")
+            print(f"[warn] Precompute failed for {scope}:{geocode_query} ({e}). Proceeding without BallTree.")
 
     # 1) Training table (cached)
     train_df = build_training_table_cached(
@@ -674,8 +686,8 @@ def top_locations_ml(scope, region_name="", top_n=5, radius_km=20,
         retrain=retrain_model
     )
 
-    # 3) Candidate cities in scope
-    candidates = filter_candidates_worldcities(worldcities_df, scope, region_name)
+    # 3) Candidate cities in scope (uses region_filter so it matches worldcities admin_name)
+    candidates = filter_candidates_worldcities(worldcities_df, scope, region_filter)
     if candidates.empty:
         print("No candidate cities for this scope/region.")
         return candidates
@@ -684,19 +696,19 @@ def top_locations_ml(scope, region_name="", top_n=5, radius_km=20,
     feats = build_candidate_features_cached(
         candidates,
         radius_km=radius_km, tree=tree, use_osm=use_osm_for_score,
-        scope=scope, region_name=region_name,
+        scope=scope, region_name=region_filter,
         algo=algo, sample_neg_per_country=sample_neg_per_country, imax_len=imax_len,
         rebuild=rebuild_features
     )
 
-    # 5) Predict ml_prob
+    # 5) Predict probabilities
     X = feats[FEATURES].fillna(0.0).to_numpy()
     ml_prob = model.predict_proba(X)[:, 1]
     out = feats.copy()
     out["ml_prob"] = ml_prob
 
     # 6) Filter by nearest IMAX + remove exact IMAX cities
-    out = filter_near_imax(out.rename(columns={"City":"City", "Country":"Country", "lat":"lat", "lon":"lon"}), min_km=20)
+    out = filter_near_imax(out.rename(columns={"City":"City","Country":"Country","lat":"lat","lon":"lon"}), min_km=20)
     imax_keys = set(zip(imax_theaters_df["City"].str.lower().str.strip(),
                         imax_theaters_df["Country"].str.lower().str.strip()))
     out = out[~out.apply(
@@ -705,6 +717,7 @@ def top_locations_ml(scope, region_name="", top_n=5, radius_km=20,
 
     cols = ["City", "Country", "lat", "lon", "population", "ml_prob"]
     return out.sort_values("ml_prob", ascending=False)[cols].head(top_n)
+
 
 
 # =========================
@@ -985,29 +998,3 @@ def recommend_non_imax_cinemas(city: str, country: str, top_n: int = 5,
 
     ranked = score_city_cinemas(candidates, city_lat, city_lon, city_pop, tree_city, local_km=local_km)
     return ranked.head(top_n)
-
-# =========================
-# Quick examples (comment/uncomment as needed)
-# =========================
-if __name__ == "__main__":
-    # Heuristic (fast dev path)
-    # print("Heuristic / Global:")
-    # print(top_locations("global", top_n=5, use_osm=False))   # fast, no network
-
-    # Country/State/City: first run does one Overpass bbox fetch; subsequent runs are instant (BallTree)
-    #print("Heuristic / Country=Germany:")
-    #rint(top_locations("country", "Germany", top_n=5))
-
-    print("Heuristic / State=California, United States:")
-    print(top_locations("state", "California, United States", top_n=5))
-
-    # print("Heuristic / City=Toronto, Canada:")
-    # print(top_locations("city", "Toronto, Canada", top_n=5))
-
-    # ML (train + score). Start with OSM disabled for speed; enable on small scopes when ready.
-    #print("ML / Country=Japan (RF):")
-    #print(top_locations_ml("country", "Japan", top_n=5))
-
-    # City-scope non-IMAX venues (uncomment to try)
-    #print("City venues / Non-IMAX candidates in Berlin, Germany:")
-    #print(recommend_non_imax_cinemas("Berlin", "Germany", top_n=5, fuzz_threshold=93, prox_m=700.0, local_km=3.0))
