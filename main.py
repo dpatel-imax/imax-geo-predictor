@@ -342,7 +342,7 @@ def top_locations(scope, region_name="", top_n=5, radius_km=20, use_osm=None, ma
     if max_rows is None and scope_l == "global":
         max_rows = 300
 
-    # ✅ NEW: normalize once for filtering vs geocoding
+    
     region_filter, geocode_query = normalize_scope_inputs(scope, region_name)
 
     # (1) Candidates from worldcities using the normalized FILTER value
@@ -355,7 +355,7 @@ def top_locations(scope, region_name="", top_n=5, radius_km=20, use_osm=None, ma
 
     # (2) Precompute region cinemas using the normalized GEOCODE value
     tree = None
-    if scope_l != "global":
+    if scope_l != "global" and use_osm:
         try:
             tree = ensure_region_precomputed(scope, geocode_query)
         except Exception as e:
@@ -662,7 +662,7 @@ def top_locations_ml(scope, region_name="", top_n=5, radius_km=20,
 
     # BallTree for the scope (uses geocode_query so “California” resolves reliably)
     tree = None
-    if scope_l != "global":
+    if scope_l != "global" and (use_osm_for_train or use_osm_for_score):
         try:
             tree = ensure_region_precomputed(scope, geocode_query)
         except Exception as e:
