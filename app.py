@@ -454,9 +454,9 @@ if st.session_state["view"] == "venues":
 
     city_col, country_col = st.columns(2)
     with city_col:
-        city_name = st.text_input("City", value=city_name, key="city_input_live", on_change=reset_city_view,)
+        city_name = st.text_input("City", value=city_name, key="city_input_live", on_change=reset_city_view)
     with country_col:
-        country_name = st.text_input("Country", value=country_name, key="country_input_live", on_change=reset_city_view,)
+        country_name = st.text_input("Country", value=country_name, key="country_input_live")
 
     # Decide if we auto-run (after jump) or wait for button
     auto = bool(st.session_state.get("autostart_city_query"))

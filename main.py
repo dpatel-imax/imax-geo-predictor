@@ -657,7 +657,6 @@ def top_locations_ml(scope, region_name="", top_n=5, radius_km=20,
     """
     scope_l = scope.lower()
 
-    # ✅ NEW: normalize once for filtering vs geocoding
     region_filter, geocode_query = normalize_scope_inputs(scope, region_name)
 
     # BallTree for the scope (uses geocode_query so “California” resolves reliably)
