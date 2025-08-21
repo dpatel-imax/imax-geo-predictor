@@ -1,0 +1,9 @@
+streamlit>=1.36
+pandas>=2.2
+numpy>=1.26
+pydeck>=0.9
+requests>=2.32
+geopy>=2.4
+scikit-learn>=1.5
+thefuzz[speedup]>=0.22
+joblib>=1.4
